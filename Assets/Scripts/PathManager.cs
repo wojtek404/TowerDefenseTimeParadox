@@ -1,60 +1,40 @@
-﻿/*  This file is part of the "3D Tower Defense Starter Kit" project by Rebound Games.
- *  You are only allowed to use these resources if you've bought them directly or indirectly
- *  from Rebound Games. You shall not license, sublicense, sell, resell, transfer, assign,
- *  distribute or otherwise make available to any third party the Service or the Content. 
- */
-
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-//PathManager.cs stores all waypoints of this path
 public class PathManager : MonoBehaviour
 {
-    //array to store all waypoint transforms of this path
     public Transform[] waypoints;
-    //toggle drawing of straight and curved lines
     public bool drawStraight = true;
     public bool drawCurved = true;
 
-    public Color color1 = new Color(1, 0, 1, 0.5f); //cube color
-    public Color color2 = new Color(1, 235 / 255f, 4 / 255f, 0.5f); //sphere color
+    public Color color1 = new Color(1, 0, 1, 0.5f);
+    public Color color2 = new Color(1, 235 / 255f, 4 / 255f, 0.5f);
 
-    //waypoint gizmo radius
     private float radius = .4f;
-    //waypointStart/-End box gizmo size
     private Vector3 size = new Vector3(.7f, .7f, .7f);
 
 
     void OnDrawGizmos()
     {
-        //differ between children waypoint types:
-        //waypointStart or waypointEnd, draw small cube gizmo using color2
-        //standard waypoint, draw small sphere using color1
         foreach (Transform child in transform)
         {
             if (child.name == "Waypoint")
             {
-                //assign chosen color2 to current gizmo color
                 Gizmos.color = color2;
-                //draw wire sphere at waypoint position
                 Gizmos.DrawWireSphere(child.position, radius);
             }
             else
             {
-                //assign chosen color1 to current gizmo color
                 Gizmos.color = color1;
-                //draw wire cube at waypoint position
                 Gizmos.DrawWireCube(child.position, size);
             }
         }
 
-        //draw straight lines
         if (drawStraight)
             DrawStraight();
 
-        //draw curved lines
         if (drawCurved)
             DrawCurved();
     }
@@ -62,19 +42,13 @@ public class PathManager : MonoBehaviour
 
     void DrawStraight()
     {
-        //draw lines between waypoints with color2
         Gizmos.color = color2;
         for (int i = 0; i < waypoints.Length - 1; i++)
             Gizmos.DrawLine(waypoints[i].position, waypoints[i + 1].position);
     }
 
-
-    //helper array for curved paths, includes control points for waypoint array
     Vector3[] points;
 
-    //taken and modified from
-    //http://code.google.com/p/hotween/source/browse/trunk/Holoville/HOTween/Core/Path.cs
-    //draws the full path
     void DrawCurved()
     {
         if (waypoints.Length < 2) return;
@@ -93,7 +67,6 @@ public class PathManager : MonoBehaviour
         Vector3[] drawPs;
         Vector3 currPt;
 
-        // Store draw points.
         int subdivisions = points.Length * 10;
         drawPs = new Vector3[subdivisions + 1];
         for (int i = 0; i <= subdivisions; ++i)
@@ -102,8 +75,6 @@ public class PathManager : MonoBehaviour
             currPt = GetPoint(pm);
             drawPs[i] = currPt;
         }
-
-        // Draw path.
         Vector3 prevPt = drawPs[0];
         for (int i = 1; i < drawPs.Length; ++i)
         {
@@ -113,11 +84,6 @@ public class PathManager : MonoBehaviour
         }
     }
 
-
-    //taken from
-    //http://code.google.com/p/hotween/source/browse/trunk/Holoville/HOTween/Core/Path.cs
-    // Gets the point on the curve at the given percentage (0 to 1).
-    // t: The percentage (0 to 1) at which to get the point.
     private Vector3 GetPoint(float t)
     {
         int numSections = points.Length - 3;

@@ -16,15 +16,9 @@ public class MouseOrbit : MonoBehaviour
 	    Vector3 angles = transform.eulerAngles;
     	x = angles.y;
     	y = angles.x;
-
-		// Make the rigid body not change rotation
-   		if (GetComponent<Rigidbody>())
-			GetComponent<Rigidbody>().freezeRotation = true;
-		
-		//Screen.showCursor = false;
+        if (GetComponent<Rigidbody>())
+            GetComponent<Rigidbody>().freezeRotation = true;
 	}
-	
-	// Update is called once per frame
 	void LateUpdate () 
 	{
 		distance += Input.GetAxis("Mouse ScrollWheel") * 5 ;

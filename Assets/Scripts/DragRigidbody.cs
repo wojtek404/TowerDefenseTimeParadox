@@ -18,15 +18,12 @@ namespace UnityStandardAssets.Utility
 
         private void Update()
         {
-            // Make sure the user pressed the mouse down
             if (!Input.GetMouseButtonDown(0))
             {
                 return;
             }
 
             var mainCamera = FindCamera();
-
-            // We need to actually hit an object
             RaycastHit hit = new RaycastHit();
             if (
                 !Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition).origin,
@@ -35,7 +32,6 @@ namespace UnityStandardAssets.Utility
             {
                 return;
             }
-            // We need to hit a rigidbody that is not kinematic
             if (!hit.rigidbody || hit.rigidbody.isKinematic)
             {
                 return;

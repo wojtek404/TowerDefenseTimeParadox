@@ -1,12 +1,4 @@
-﻿
-// original script "SkinnedMeshCombiner" by Ian Smithers of Australia
-// posted (2012) on wiki.unity3d.com under the creative commons license 
-// modified by Ranjeet "Rungy" Singhal Dec 6,2015 (SexySideKicks.com)
-// The "Content is available under Creative Commons Attribution Share Alike."
-// which grants free use, even commercial, the license and requires contributors 
-// names, stated above, be kept on the work  >>in this script<<
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public class SkinnedMeshCombiner : MonoBehaviour 
@@ -21,15 +13,8 @@ public class SkinnedMeshCombiner : MonoBehaviour
         List<Transform> bones = new List<Transform>();        
         List<BoneWeight> boneWeights = new List<BoneWeight>();        
         List<CombineInstance> combineInstances = new List<CombineInstance>();
-		
-		//get all the skinned mesh renderers
 		SkinnedMeshRenderer[] allRenderers =GetComponentsInChildren<SkinnedMeshRenderer>();
 		print (allRenderers.Length);
-		
-		// go through all the skinned mesh renderers
-		// get only the ones...
-		// 		whose material is the same as the first skinned mesh
-		// 		and whose renderer is enabled
 		foreach(SkinnedMeshRenderer smr in allRenderers)
 		{
 			if(smr.enabled ==true)
@@ -55,8 +40,6 @@ public class SkinnedMeshCombiner : MonoBehaviour
         for( int s = 0; s < smRenderers.Count; s++ ) 
 		{
             SkinnedMeshRenderer smr = smRenderers[s];
-			
-			// Make a new list of bones adding new ones as we find them
             foreach( Transform bone in smr.bones )
 			{
 				if(!bones.Contains(bone))
@@ -64,11 +47,6 @@ public class SkinnedMeshCombiner : MonoBehaviour
 					bones.Add( bone );
 				}
 			}
-			
-			//bone indices are are not the same for all skinned meshes
-			//the skinning data requires an index for each bone
-			//since our new mesh needs to share a combined bone list
-			//we need to find the IndexOf the new indices
             BoneWeight[] meshBoneweights = smr.sharedMesh.boneWeights;
             foreach( BoneWeight bw in meshBoneweights ) 
 			{
@@ -85,8 +63,6 @@ public class SkinnedMeshCombiner : MonoBehaviour
             ci.mesh = smr.sharedMesh;
             meshIndex[s] = ci.mesh.vertexCount;
             combineInstances.Add( ci );
- 
-            //Object.Destroy( smr.gameObject );
 			smr.enabled = false;
         }
  
