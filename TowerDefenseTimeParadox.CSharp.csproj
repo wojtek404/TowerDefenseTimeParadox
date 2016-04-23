@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.4f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -86,12 +88,9 @@
     <Compile Include="Assets\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\ObjectCall.cs" />
     <Compile Include="Assets\Scripts\PathEditor.cs" />
-    <Compile Include="Assets\Scripts\PathIndicator.cs" />
     <Compile Include="Assets\Scripts\PathManager.cs" />
     <Compile Include="Assets\Scripts\Pool.cs" />
     <Compile Include="Assets\Scripts\PoolManager.cs" />
-    <Compile Include="Assets\Scripts\PowerUpManager.cs" />
-    <Compile Include="Assets\Scripts\PowerUps.cs" />
     <Compile Include="Assets\Scripts\ProgressMap.cs" />
     <Compile Include="Assets\Scripts\ProgressMapObject.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
@@ -110,7 +109,6 @@
   <ItemGroup>
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
     <None Include="Assets\Scripts\HOTween.XML" />
-    <None Include="Assets\Scripts\HOTween_License.txt" />
     <None Include="Assets\Standard Assets\DefaultResources\Normal-Diffuse.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

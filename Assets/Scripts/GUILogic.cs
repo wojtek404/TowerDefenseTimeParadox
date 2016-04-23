@@ -7,7 +7,6 @@ public class GUILogic : MonoBehaviour
 {
     public TowerManager towerScript;
     public GridManager gridScript;
-    public PowerUpManager powerUpScript;
     public Camera raycastCam;
 
     private Ray ray;
@@ -41,9 +40,6 @@ public class GUILogic : MonoBehaviour
         if (gridScript == null)
             Debug.LogWarning("GUI GridManager not set");
 
-        if (powerUpScript == null)
-            Debug.LogWarning("GUI PowerUpManager not set");
-
         if (Application.platform == RuntimePlatform.Android ||
             Application.platform == RuntimePlatform.IPhonePlayer)
             mobile = true;
@@ -59,7 +55,6 @@ public class GUILogic : MonoBehaviour
         ray = raycastCam.ScreenPointToRay(Input.mousePosition);
         RaycastGrid();
         RaycastTower();
-        if(IsPowerUpSelected()) RaycastPowerUp();
     }
 
     void RaycastGrid()
@@ -225,7 +220,6 @@ public class GUILogic : MonoBehaviour
         towerBase.enabled = false;
         if (!SV.gridSelection)
             gridScript.ToggleVisibility(true);
-        PowerUpManager.ApplyToSingleTower(towerBase, upgrade);
     }
 
     public void BuyTower()
@@ -266,109 +260,6 @@ public class GUILogic : MonoBehaviour
             gridScript.GridList.Remove(grid.name);
             grid.GetComponent<Renderer>().material = gridScript.gridFreeMat;
         }
-    }
-
-    public void SelectPowerUp(int index)
-    {
-        powerUpScript.SelectPowerUp(index);
-    }
-
-    public void SelectPassivePowerUp(int index)
-    {
-        powerUpScript.SelectPassivePowerUp(index);
-    }
-
-    public bool IsPowerUpSelected()
-    {
-        if (powerUpScript)
-            return powerUpScript.HasSelection();
-        else
-            return false;
-    }
-
-    public bool IsPassivePowerUpSelected()
-    {
-        if (powerUpScript)
-            return powerUpScript.HasPassiveSelection();
-        else
-            return false;
-    }
-
-    public BattlePowerUp GetPowerUp()
-    {
-        return powerUpScript.GetSelection();
-    }
-
-    public PassivePowerUp GetPassivePowerUp()
-    {
-        return powerUpScript.GetPassiveSelection();
-    }
-
-    public void RaycastPowerUp()
-    {
-        int specificMask;
-        BattlePowerUp powerup = powerUpScript.GetSelection();
-        powerup.target = null;
-        if (powerup is OffensivePowerUp)
-            specificMask = SV.enemyMask;
-        else
-            specificMask = SV.towerMask;
-        if (Physics.Raycast(ray, out powerUpHit, 300f, specificMask))
-        {
-            Transform target = powerUpHit.transform;
-            powerup.target = powerUpHit.transform;
-            if (Physics.Raycast(target.position, Vector3.down, out powerUpHit, 100f, SV.worldMask))
-            {
-                if (powerUpHit.transform.CompareTag("Ground"))
-                    powerup.position = powerUpHit.point;
-                else
-                    powerup.position = target.position;
-            }
-        }
-        else if (Physics.Raycast(ray, out powerUpHit, 300f, SV.worldMask))
-        {
-            if (!powerUpHit.transform.CompareTag("Ground"))
-            {
-                powerup.position = SV.outOfView;
-                return;
-            }
-
-            powerup.position = powerUpHit.point;
-        }
-        if (!powerup.CheckRequirements())
-            powerup.position = SV.outOfView;
-    }
-
-    public void ActivatePowerUp()
-    {
-        if(IsPowerUpSelected() && powerUpScript.GetSelection().position != SV.outOfView)
-            powerUpScript.Activate();
-    }
-	
-    public bool ActivatePassivePowerUp()
-    {
-        if (!IsPassivePowerUpSelected()) return false;
-        PassivePowerUp powerup = GetPassivePowerUp();
-
-        bool affordable = true;
-        for (int i = 0; i < GameHandler.resources.Length; i++)
-        {
-            if (GameHandler.resources[i] < powerup.cost[i])
-            {
-                affordable = false;
-                break;
-            }
-        }
-        if (!affordable) return false;
-        for (int i = 0; i < powerup.cost.Length; i++)
-            GameHandler.resources[i] -= powerup.cost[i];
-        powerUpScript.ActivatePassive();
-        return true;
-    }
-
-    public void DeselectPowerUp()
-    {
-        powerUpScript.Deselect();
     }
 
     public void OnVolumeChange(float value)

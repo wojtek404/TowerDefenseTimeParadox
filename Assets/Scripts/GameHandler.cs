@@ -56,24 +56,6 @@ public class GameHandler : MonoBehaviour
         resources[index] += points;
     }
 
-    public IEnumerator SetResourcesRoutine(PassivePowerUp.PassivePlayerPowerUp.Resources res)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(res.interval);
-            
-            for (int i = 0; i < res.value.Length; i++)
-            {
-                float resDiff = res.value[i];
-                if (res.type == TDValue.percentual)
-                    resDiff = Mathf.Round(resources[i] * res.value[i] * 100f) / 100f;
-                if (res.costType == CostType.intValue)
-                    resDiff = (int)resDiff;
-                SetResources(i, resDiff);
-            }
-        }
-    }
-
     public static void EnemyWasKilled()
     {
         enemiesAlive--;
@@ -86,19 +68,6 @@ public class GameHandler : MonoBehaviour
         gameHealth += points;
         if (gameHealth > maxHealth)
             gameHealth = maxHealth;
-    }
-
-    public IEnumerator AddHealthRoutine(PassivePowerUp.PassivePlayerPowerUp.Health heal)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(heal.interval);
-
-            float healthDiff = heal.value;
-            if (heal.type == TDValue.percentual)
-                healthDiff = (int)(maxHealth * heal.value);
-            AddHealth(healthDiff);
-        }
     }
 
     public static void DealDamage(float dmg)

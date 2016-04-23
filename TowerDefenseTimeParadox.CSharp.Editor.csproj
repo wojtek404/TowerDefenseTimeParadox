@@ -116,7 +116,6 @@
   <ItemGroup>
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
     <None Include="Assets\Scripts\HOTween.XML" />
-    <None Include="Assets\Scripts\HOTween_License.txt" />
     <None Include="Assets\Standard Assets\DefaultResources\Normal-Diffuse.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

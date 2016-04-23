@@ -39,8 +39,6 @@ public class TowerBase : MonoBehaviour
     public float projSpacing = 3;
     [HideInInspector]
     public Upgrade upgrade;
-    private DefensivePowerUp powerup;
-    private DefensivePowerUp tempPowerup;
     private List<UpgOptions> tempOptions;
 
 
@@ -277,81 +275,6 @@ public class TowerBase : MonoBehaviour
         proj.followEnemy = false;
         proj.endPos = targetPos;
         proj.damage = proj.damage * controlMultiplier;
-    }
-
-    public void ApplyPowerUp(DefensivePowerUp powerup)
-    {
-        if (this.powerup != null)
-        {
-            StopCoroutine("PowerUpBoost");
-            RemovePowerUp();
-        }
-        this.powerup = powerup;
-        StartCoroutine("PowerUpBoost");
-    }
-
-
-    IEnumerator PowerUpBoost()
-    {
-        shotAngle *= powerup.buff.shotAngle;
-        controlMultiplier *= powerup.buff.controlMultiplier;
-        tempPowerup = new DefensivePowerUp();
-        tempOptions = new List<UpgOptions>();
-        for (int i = 0; i < upgrade.options.Count; i++)
-        {
-            UpgOptions opt = upgrade.options[i];
-            tempOptions.Add(new UpgOptions());
-            tempOptions[i].radius = opt.radius;
-            tempOptions[i].damage = opt.damage;
-            tempOptions[i].shootDelay = opt.shootDelay;
-            tempOptions[i].targetCount = opt.targetCount;
-            tempOptions[i].radius -= opt.radius *= powerup.buff.radius;
-            tempOptions[i].damage -= opt.damage *= powerup.buff.damage;
-            tempOptions[i].shootDelay -= opt.shootDelay /= powerup.buff.shootDelay;
-            tempOptions[i].targetCount -= opt.targetCount += powerup.buff.targetCount;
-        }
-        if (powerup.buffFx)
-            tempPowerup.buffFx = PoolManager.Pools["Particles"].Spawn(powerup.buffFx, transform.position, Quaternion.identity);
-        upgrade.RangeChange();
-        CancelInvoke("CheckRange");       
-        float newDelay = upgrade.options[upgrade.curLvl].shootDelay;
-        float remainTime = lastShot + newDelay - Time.time;
-        if (remainTime < 0) remainTime = 0;
-        if (remainTime > newDelay)
-            StartInvoke(newDelay);
-        else
-            StartInvoke(remainTime);
-        yield return new WaitForSeconds(powerup.duration);
-        RemovePowerUp();
-    }
-
-    void RemovePowerUp()
-    {
-        shotAngle /= powerup.buff.shotAngle;
-        controlMultiplier /= powerup.buff.controlMultiplier;
-
-        for (int i = 0; i < upgrade.options.Count; i++)
-        {
-            UpgOptions opt = upgrade.options[i];
-            opt.radius += tempOptions[i].radius;
-            opt.damage += tempOptions[i].damage;
-            opt.shootDelay += tempOptions[i].shootDelay;
-            opt.targetCount += tempOptions[i].targetCount;
-        }
-        if (tempPowerup.buffFx)
-            PoolManager.Pools["Particles"].Despawn(tempPowerup.buffFx);
-        upgrade.RangeChange();
-        CancelInvoke("CheckRange");
-        float newDelay = upgrade.options[upgrade.curLvl].shootDelay;
-        float remainTime = lastShot + newDelay - Time.time;
-        if (remainTime < 0) remainTime = 0;
-
-        if (remainTime > newDelay)
-            StartInvoke(newDelay);
-        else
-            StartInvoke(remainTime);
-        powerup = null;
-        tempPowerup = null;
     }
 
     void OnDrawGizmosSelected()

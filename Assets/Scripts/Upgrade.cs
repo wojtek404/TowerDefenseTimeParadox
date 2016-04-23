@@ -68,7 +68,6 @@ public class Upgrade : MonoBehaviour
         newUpgrade.curLvl = this.curLvl;
         newUpgrade.options = this.options;
         newTowerBase.upgrade = newUpgrade;
-        PowerUpManager.ApplyToSingleTower(newTowerBase, newUpgrade);
         newTowerBase.enabled = true;
         newTowerBase.CancelInvoke("CheckRange");
         float lastShot = towerScript.lastShot;

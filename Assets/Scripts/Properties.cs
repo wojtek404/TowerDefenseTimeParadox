@@ -42,7 +42,6 @@ public class Properties : MonoBehaviour
             barParentTrans = healthbar.transform.parent.GetComponent<RectTransform>();
         else if (shield.bar)
             barParentTrans = shield.bar.transform.parent.GetComponent<RectTransform>();
-        PowerUpManager.ApplyToSingleEnemy(this, myMove);
     }
 
     IEnumerator OnSpawn()
