@@ -93,10 +93,12 @@
     <Compile Include="Assets\Scripts\PoolManager.cs" />
     <Compile Include="Assets\Scripts\ProgressMap.cs" />
     <Compile Include="Assets\Scripts\ProgressMapObject.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Tower\Projectile.cs" />
     <Compile Include="Assets\Scripts\Properties.cs" />
     <Compile Include="Assets\Scripts\SV.cs" />
     <Compile Include="Assets\Scripts\SelfControl.cs" />
+    <Compile Include="Assets\Scripts\Tower\RangeTrigger.cs" />
+    <Compile Include="Assets\Scripts\Tower\TowerController.cs" />
     <Compile Include="Assets\Scripts\TowerBase.cs" />
     <Compile Include="Assets\Scripts\TowerManager.cs" />
     <Compile Include="Assets\Scripts\TowerRotation.cs" />
