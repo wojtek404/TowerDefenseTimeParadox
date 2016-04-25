@@ -58,7 +58,9 @@ public class TowerController : MonoBehaviour {
 
     void InstantiateProjectile(Transform target)
     {
-        GameObject projectileObj = (GameObject)Object.Instantiate(projectile, transform.position, new Quaternion());
+        Vector3 projectileSpawnPosition = transform.position;
+        projectileSpawnPosition.y = 15;
+        GameObject projectileObj = (GameObject)Object.Instantiate(projectile, projectileSpawnPosition, new Quaternion());
         projectileObj.SetActive(true);
         Projectile proj = projectileObj.GetComponent<Projectile>();
 
