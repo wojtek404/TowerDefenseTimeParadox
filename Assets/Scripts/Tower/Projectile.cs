@@ -183,7 +183,7 @@ public class Projectile : MonoBehaviour
                yield return null;
             }
         }
-        PoolManager.Pools["Projectiles"].Despawn(gameObject);
+        Destroy(gameObject);
     }
 
     void Explosion()
