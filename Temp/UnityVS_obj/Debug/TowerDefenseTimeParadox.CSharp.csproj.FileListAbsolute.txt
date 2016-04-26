@@ -1,0 +1,17 @@
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\HOTween.dll
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\HOTweenV1_Editor.dll
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\UnityEngine.Networking.dll
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\UnityEngine.Networking.xml
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\UnityEditor.xml
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_bin\Debug\HOTween.xml
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_obj\Debug\TowerDefenseTimeParadox.CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_obj\Debug\Assembly-CSharp.dll
+C:\Users\Krzysiek\Documents\TowerDefenseTimeParadox\Temp\UnityVS_obj\Debug\Assembly-CSharp.pdb
