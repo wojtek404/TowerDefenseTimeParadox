@@ -48,7 +48,6 @@ public class WaveManager : MonoBehaviour
     {
         if (waveMode == WaveMode.normal)
             GameHandler.waveCount = options.Count.ToString();
-        AudioManager.Play(sounds.backgroundMusic);
         if(autoStart)
             StartWaves();
     }
@@ -81,15 +80,11 @@ public class WaveManager : MonoBehaviour
 
             Debug.Log("Wave Defeated");
          
-            AudioManager.Play(sounds.backgroundMusic);
-            AudioManager.Play2D(sounds.waveEndSound);
         }
         else
         {
             if (GameHandler.enemiesAlive > 0)
                 return;
-            AudioManager.Play(sounds.backgroundMusic);
-            AudioManager.Play2D(sounds.waveEndSound);
             GameHandler.gameOver = true;
         }
         CancelInvoke("CheckStatus");
@@ -102,8 +97,6 @@ public class WaveManager : MonoBehaviour
             PoolManager.DestroyAllInactive(true);
         if(GameHandler.wave > 0)
             IncreaseSettings();
-        AudioManager.Play(sounds.battleMusic);
-        AudioManager.Play2D(sounds.waveStartSound);
         if (anims.spawnStart)
         {
             anims.objectToAnimate.GetComponent<Animation>().Play(anims.spawnStart.name);

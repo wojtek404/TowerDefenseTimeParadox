@@ -12,7 +12,6 @@ public class Projectile : MonoBehaviour
     private bool cacheFollowEnemy;
 
     public float speed = 0f;
-    private Vector3 previousPosition;
     private Rigidbody myRigidbody;
     public bool singleDMG = true;
     public float timeToLast = 0;
@@ -20,7 +19,6 @@ public class Projectile : MonoBehaviour
 
     [HideInInspector]
     public Vector3 startPos = Vector3.zero;
-    private float time = 0f;
     [HideInInspector]
     public Vector3 endPos = Vector3.zero;
     private bool executed;
@@ -40,8 +38,6 @@ public class Projectile : MonoBehaviour
         if (!myRigidbody) Init();
         executed = false;
         startPos = transform.position;
-        previousPosition = myRigidbody.position;
-        time = 0f;
         cacheFollowEnemy = followEnemy;
         yield return new WaitForEndOfFrame();
         if (target && !followEnemy)

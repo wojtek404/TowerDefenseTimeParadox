@@ -140,7 +140,6 @@ public class Properties : MonoBehaviour
     void OnHit()
     {
         time = Time.time;
-        AudioManager.Play(hitSound, transform.position, Random.Range(1.0f - .2f, 1.0f + .1f));
         if (hitEffect)
             PoolManager.Pools["Particles"].Spawn(hitEffect, transform.position, hitEffect.transform.rotation);
     }
@@ -223,7 +222,6 @@ public class Properties : MonoBehaviour
         {
             if (deathEffect)
                 PoolManager.Pools["Particles"].Spawn(deathEffect, transform.position, Quaternion.identity);
-            AudioManager.Play(deathSound, transform.position);
 
             if (dieAnim)
             {

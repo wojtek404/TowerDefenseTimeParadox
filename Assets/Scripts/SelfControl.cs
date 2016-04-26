@@ -5,7 +5,6 @@ using System.Collections;
 public class SelfControl : MonoBehaviour
 {
     private Transform cam;
-    private CameraControl camDesktop;
     private TowerBase towerScript;
     private TowerRotation towerRotScript;
     private int curLvl;
@@ -21,11 +20,6 @@ public class SelfControl : MonoBehaviour
     {
         cam = Camera.main.transform;
         this.guiObj = guiObj;
-        if (!mobile)
-        {
-            camDesktop = cam.GetComponent<CameraControl>();
-            camDesktop.enabled = false;
-        }
         towerScript = gameObject.GetComponent<TowerBase>();
         towerScript.rangeInd.GetComponent<Renderer>().enabled = true;
         towerScript.CancelInvoke("CheckRange");
@@ -55,14 +49,6 @@ public class SelfControl : MonoBehaviour
     {
         while (true)
         {
-            if (camDesktop)
-            {
-                camDesktop.Rotate();
-                if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
-                {
-                    Attack();
-                }
-            }
             PositionCrosshair();
             yield return null;
         }
@@ -132,8 +118,6 @@ public class SelfControl : MonoBehaviour
     public void Terminate()
     {
         this.StopAllCoroutines();
-        if(camDesktop)
-        camDesktop.enabled = true;
         towerScript.rangeInd.GetComponent<Renderer>().enabled = false;
         if (towerRotScript)
         {

@@ -121,7 +121,6 @@
     <None Include="Assets\RTS_Camera\Demo\Projectors\Guidelines.txt" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorMultiply.shader" />
-    <None Include="Assets\Scripts\HOTween.XML" />
     <None Include="Assets\Standard Assets\DefaultResources\Normal-Diffuse.shader" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />

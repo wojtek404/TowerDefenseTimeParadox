@@ -223,7 +223,6 @@ public class TowerBase : MonoBehaviour
 
     void ShotEffect()
     {
-        AudioManager.Play(shotSound, shotPos.position);
         if (shotAnim)
             GetComponent<Animation>().Play(shotAnim.name);
         if (shotFx)
