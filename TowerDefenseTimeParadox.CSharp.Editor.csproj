@@ -113,9 +113,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\Editor\TurnOffRenderers.cs" />
+    <Compile Include="Assets\RTS_Camera\Scripts\Editor\LayoutHelpers.cs" />
+    <Compile Include="Assets\RTS_Camera\Scripts\Editor\RTS_CameraEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
+    <None Include="Assets\RTS_Camera\Demo\Projectors\Guidelines.txt" />
+    <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorLight.shader" />
+    <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\Scripts\HOTween.XML" />
     <None Include="Assets\Standard Assets\DefaultResources\Normal-Diffuse.shader" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
