@@ -53,13 +53,18 @@ namespace RTS_Cam
 
         private float zoomPos = 0; //value in range (0, 1) used as t in Matf.Lerp
 
+        public bool staticGroundLevel = true;
+        public float groundLevel = 0f;
+
         #endregion
 
         #region MapLimits
 
         public bool limitMap = true;
-        public float limitX = 50f; //x limit of map
-        public float limitY = 50f; //z limit of map
+        public float limitXplus = 50f; //x limit of map
+        public float limitXminus = 50f; //x limit of map
+        public float limitZplus = 50f; //z limit of map
+        public float limitZminus = 50f; //z limit of map
 
         #endregion
 
@@ -303,9 +308,9 @@ namespace RTS_Cam
             if (!limitMap)
                 return;
                 
-            m_Transform.position = new Vector3(Mathf.Clamp(m_Transform.position.x, -limitX, limitX),
+            m_Transform.position = new Vector3(Mathf.Clamp(m_Transform.position.x, -limitXminus, limitXplus),
                 m_Transform.position.y,
-                Mathf.Clamp(m_Transform.position.z, -limitY, limitY));
+                Mathf.Clamp(m_Transform.position.z, -limitZminus, limitZplus));
         }
 
         /// <summary>
@@ -331,6 +336,10 @@ namespace RTS_Cam
         /// <returns></returns>
         private float DistanceToGround()
         {
+            if (staticGroundLevel)
+            {
+                return (new Vector3(0, groundLevel, 0) - m_Transform.position).magnitude;
+            }
             Ray ray = new Ray(m_Transform.position, Vector3.down);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, groundMask.value))

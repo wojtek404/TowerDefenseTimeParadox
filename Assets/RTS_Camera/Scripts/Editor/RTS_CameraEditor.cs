@@ -76,8 +76,10 @@ namespace RTS_Cam
             }
             if (camera.limitMap)
             {
-                camera.limitX = EditorGUILayout.FloatField("Limit X: ", camera.limitX);
-                camera.limitY = EditorGUILayout.FloatField("Limit Y: ", camera.limitY);
+                camera.limitXplus = EditorGUILayout.FloatField("Limit X+: ", camera.limitXplus);
+                camera.limitZplus = EditorGUILayout.FloatField("Limit Z+: ", camera.limitZplus);
+                camera.limitXminus = EditorGUILayout.FloatField("Limit X-: ", camera.limitXminus);
+                camera.limitZminus = EditorGUILayout.FloatField("Limit Z-: ", camera.limitZminus);
             }
 
             GUILayout.Label("Follow target", EditorStyles.boldLabel);
@@ -152,7 +154,17 @@ namespace RTS_Cam
                     camera.maxHeight = EditorGUILayout.FloatField("Max height: ", camera.maxHeight);
                     camera.minHeight = EditorGUILayout.FloatField("Min height: ", camera.minHeight);
                 }
-            }  
+            }
+
+            using (new HorizontalBlock())
+            {
+                GUILayout.Label("Static groud level: ", EditorStyles.boldLabel, GUILayout.Width(170f));
+                camera.staticGroundLevel = EditorGUILayout.Toggle(camera.staticGroundLevel);
+            }
+            if (camera.staticGroundLevel)
+            {
+                camera.groundLevel = EditorGUILayout.FloatField("Ground level: ", camera.groundLevel);
+            }
         }
     }
 }
