@@ -112,6 +112,10 @@
     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\Editor\TurnOffRenderers.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\!SCI_FI_Modular_Pack_Free\AdditiveTint.shader" />
+    <None Include="Assets\CUSTOM\LASciFiPanel\_ChangeLog.txt" />
+    <None Include="Assets\CUSTOM\LASciFiPanel\_Instructions.txt" />
+    <None Include="Assets\CUSTOM\LASciFiPanel\_ProductFeatures.txt" />
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
     <None Include="Assets\Moba_Camera\Readme\readme.txt" />
     <None Include="Assets\Standard Assets\DefaultResources\Normal-Diffuse.shader" />
