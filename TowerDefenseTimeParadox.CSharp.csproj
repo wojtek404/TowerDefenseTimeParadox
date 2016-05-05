@@ -88,9 +88,6 @@
     <Compile Include="Assets\Moba_Camera\TestFiles\Scripts\DemoSwitchTarget.cs" />
     <Compile Include="Assets\Moba_Camera\TestFiles\Scripts\DemoTarget.cs" />
     <Compile Include="Assets\Moba_Camera\TestFiles\Scripts\DemoUI_Controls.cs" />
-    <Compile Include="Assets\RTS_Camera\Demo\DemoScene.cs" />
-    <Compile Include="Assets\RTS_Camera\Demo\TargetSelector.cs" />
-    <Compile Include="Assets\RTS_Camera\Scripts\RTS_Camera.cs" />
     <Compile Include="Assets\Scripts\DragRigidbody.cs" />
     <Compile Include="Assets\Scripts\Editor 1\WaveEditor.cs" />
     <Compile Include="Assets\Scripts\Editor 1\WaypointEditor.cs" />
@@ -122,9 +119,6 @@
   <ItemGroup>
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
     <None Include="Assets\Moba_Camera\Readme\readme.txt" />
-    <None Include="Assets\RTS_Camera\Demo\Projectors\Guidelines.txt" />
-    <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorLight.shader" />
-    <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\Standard Assets\DefaultResources\Normal-Diffuse.shader" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
