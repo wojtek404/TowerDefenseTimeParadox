@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -87,6 +81,13 @@
     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\Outfitter.cs" />
     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\RootMotionOff.cs" />
     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\SkinnedMeshCombiner.cs" />
+    <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera.cs" />
+    <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera_Boundaries.cs" />
+    <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera_Boundary.cs" />
+    <Compile Include="Assets\Moba_Camera\TestFiles\Scripts\DemoMovementLine.cs" />
+    <Compile Include="Assets\Moba_Camera\TestFiles\Scripts\DemoSwitchTarget.cs" />
+    <Compile Include="Assets\Moba_Camera\TestFiles\Scripts\DemoTarget.cs" />
+    <Compile Include="Assets\Moba_Camera\TestFiles\Scripts\DemoUI_Controls.cs" />
     <Compile Include="Assets\RTS_Camera\Demo\DemoScene.cs" />
     <Compile Include="Assets\RTS_Camera\Demo\TargetSelector.cs" />
     <Compile Include="Assets\RTS_Camera\Scripts\RTS_Camera.cs" />
@@ -120,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
+    <None Include="Assets\Moba_Camera\Readme\readme.txt" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Guidelines.txt" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorMultiply.shader" />
