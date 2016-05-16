@@ -86,6 +86,7 @@
     <None Include="Assets\CUSTOM\LASciFiPanel\_ProductFeatures.txt" />
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
     <None Include="Assets\Moba_Camera\Readme\readme.txt" />
+    <None Include="Assets\Small stones\Shader\Matte Shadow Mask.shader" />
     <None Include="Assets\Standard Assets\DefaultResources\Normal-Diffuse.shader" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
