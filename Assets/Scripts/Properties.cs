@@ -22,6 +22,11 @@ public class Properties : MonoBehaviour
     public AnimationClip dieAnim;  //animacja smierci
 	public AnimationClip successAnim; //animacja w przypadku powodzenia
 
+    public Slider slider;
+    public Image fillImage;
+    public Color fullHealthColor = Color.green;
+    public Color zeroHealthColor = Color.red;
+
     public float[] pointsToEarn;  //ile moze ukrasc skarbu
     public int damageToDeal = 1;    //ew. ile punktow zycia naszego zamku moze za razem zabrac
     [HideInInspector]
@@ -29,6 +34,8 @@ public class Properties : MonoBehaviour
     [HideInInspector]
     public List<TowerBase> nearTowers = new List<TowerBase>();
     private float time;
+
+    
 
 
     void Start()
@@ -38,9 +45,9 @@ public class Properties : MonoBehaviour
         anim = gameObject.GetComponentInChildren<Animation>();
         myMove.maxSpeed = myMove.speed;
         myMove.pMapProperties.myID = gameObject.GetInstanceID();
-        if (healthbar)
+        /*if (healthbar)
             barParentTrans = healthbar.transform.parent.GetComponent<RectTransform>();
-        else if (shield.bar)
+        else */if (shield.bar)
             barParentTrans = shield.bar.transform.parent.GetComponent<RectTransform>();
     }
 
@@ -60,6 +67,8 @@ public class Properties : MonoBehaviour
         }
         maxhealth = health;
         shield.maxValue = shield.value;
+
+        SetHealthUI();
     }
 
     void LateUpdate()
@@ -100,13 +109,20 @@ public class Properties : MonoBehaviour
             OnDeath();
         }
         SetUnitFrame();
+        SetHealthUI();
     }
 
-	
-	public void SetUnitFrame()
+    private void SetHealthUI()
     {
-        if (healthbar)
-            healthbar.value = health / maxhealth;
+        slider.value = health;
+
+        fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, health / maxhealth);
+    }
+
+    public void SetUnitFrame()
+    {
+        //if (healthbar)
+        //    healthbar.value = health / maxhealth;
         if (shield.bar)
             shield.bar.value = shield.value / shield.maxValue;
     }
@@ -140,6 +156,7 @@ public class Properties : MonoBehaviour
     void OnHit()
     {
         time = Time.time;
+
         if (hitEffect)
             PoolManager.Pools["Particles"].Spawn(hitEffect, transform.position, hitEffect.transform.rotation);
     }
@@ -240,8 +257,8 @@ public class Properties : MonoBehaviour
 
         health = maxhealth;
         shield.value = shield.maxValue;
-        if (healthbar)
-            healthbar.value = 1;
+        //if (healthbar)
+        //    healthbar.value = 1;
         if (shield.bar)
             shield.bar.value = 1;
         PoolManager.Pools["Enemies"].Despawn(gameObject);
