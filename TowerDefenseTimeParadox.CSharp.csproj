@@ -75,6 +75,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Bezier\Example\BezierController.cs" />
     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\CamTarget.cs" />
     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\CharacterDemoController.cs" />
     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\MouseOrbit.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Assets\Scripts\TowerManager.cs" />
     <Compile Include="Assets\Scripts\TowerRotation.cs" />
     <Compile Include="Assets\Scripts\TweenMove.cs" />
+    <Compile Include="Assets\Scripts\UI\UIDirectionControl.cs" />
     <Compile Include="Assets\Scripts\Upgrade.cs" />
     <Compile Include="Assets\Scripts\UseCase.cs" />
     <Compile Include="Assets\Scripts\WaveManager.cs" />
@@ -119,11 +121,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\!SCI_FI_Modular_Pack_Free\AdditiveTint.shader" />
+    <None Include="Assets\Bezier\readme.txt" />
     <None Include="Assets\CUSTOM\LASciFiPanel\_ChangeLog.txt" />
     <None Include="Assets\CUSTOM\LASciFiPanel\_Instructions.txt" />
     <None Include="Assets\CUSTOM\LASciFiPanel\_ProductFeatures.txt" />
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
     <None Include="Assets\Moba_Camera\Readme\readme.txt" />
+    <None Include="Assets\Modular Space Raider\Shader\Dynamic_Illum_Spec.shader" />
+    <None Include="Assets\Modular Space Raider\Shader\how_to_use.txt" />
+    <None Include="Assets\Modular Space Raider\readme.txt" />
     <None Include="Assets\Small stones\Shader\Matte Shadow Mask.shader" />
     <None Include="Assets\Standard Assets\DefaultResources\Normal-Diffuse.shader" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
