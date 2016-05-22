@@ -234,8 +234,8 @@ public class Moba_Camera : MonoBehaviour {
 	private float deltaMouseDeadZone 	= 0.2f;
 	
 	// Constant values
-	private const float MAXROTATIONXAXIS = -15.0f;
-	private const float MINROTATIONXAXIS = -60.0f;
+	private const float MAXROTATIONXAXIS = -40.0f;
+	private const float MINROTATIONXAXIS = -70.0f;
 	
 	// Use this for initialization
 	void Start () {
