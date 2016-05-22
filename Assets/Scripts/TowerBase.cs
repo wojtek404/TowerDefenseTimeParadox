@@ -67,8 +67,7 @@ public class TowerBase : MonoBehaviour
 
     public void StartInvoke(float delay)
     {
-        if (this.enabled == true && !IsInvoking("CheckRange") && 
-           (!SV.control || SV.control.gameObject != gameObject))
+        if (this.enabled == true && !IsInvoking("CheckRange"))
         {
             InvokeRepeating("CheckRange", delay + 0.1f, upgrade.options[upgrade.curLvl].shootDelay);
         }
@@ -305,13 +304,13 @@ public class TowerBase : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (!SV.selection && !SV.showUpgrade && !SV.control && !SV.showExit)
+        if (!SV.selection && !SV.showUpgrade && !SV.showExit)
         rangeInd.GetComponent<Renderer>().enabled = true;
     }
 
     void OnMouseExit()
     {
-        if (!SV.selection && !SV.showUpgrade && !SV.control && !SV.showExit)
+        if (!SV.selection && !SV.showUpgrade && !SV.showExit)
         rangeInd.GetComponent<Renderer>().enabled = false;
     }    
 }

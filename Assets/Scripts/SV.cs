@@ -16,7 +16,6 @@ public class SV : MonoBehaviour
     public static GameObject selection;
     public static GameObject gridSelection;
     public static GameObject powerUpIndicator;
-    public static SelfControl control;
     public static bool showUpgrade;
     public static bool showExit;
 
@@ -43,8 +42,6 @@ public class SV : MonoBehaviour
     {    
         selection = null;
 		gridSelection = null;
-        powerUpIndicator = null;
-        control = null;
         showUpgrade = false;
         showExit = false;
     }

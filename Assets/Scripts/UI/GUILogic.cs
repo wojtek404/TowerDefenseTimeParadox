@@ -12,7 +12,6 @@ public class GUILogic : MonoBehaviour
     private Ray ray;
     private RaycastHit gridHit;
     private RaycastHit towHit;
-    private RaycastHit powerUpHit;
 
     private Transform towerContainer;
     [HideInInspector]
@@ -27,10 +26,6 @@ public class GUILogic : MonoBehaviour
     int index = 0;
 
     public GameObject[] invisibleWidgets;
-    
-    public Text errorText;
-
-    public bool mobile;
 
     void Start()
     {
@@ -40,10 +35,7 @@ public class GUILogic : MonoBehaviour
         if (gridScript == null)
             Debug.LogWarning("GUI GridManager not set");
 
-        if (Application.platform == RuntimePlatform.Android ||
-            Application.platform == RuntimePlatform.IPhonePlayer)
-            mobile = true;
-        towerContainer = GameObject.Find("Tower Manager").transform;
+        towerContainer = GameObject.Find("Towers").transform;
         foreach (GameObject gui_Obj in invisibleWidgets)
         {
             gui_Obj.SetActive(false);
@@ -265,20 +257,6 @@ public class GUILogic : MonoBehaviour
     public void OnVolumeChange(float value)
     {
         AudioListener.volume = value;
-    }
-
-    public IEnumerator DisplayError(string text)
-    {
-        if (text == errorText.text)
-            yield break;
-        errorText.text = text;
-        StartCoroutine("FadeIn", errorText.gameObject);
-        yield return new WaitForSeconds(2);
-        if (text != errorText.text)
-            yield break;
-        StartCoroutine("FadeOut", errorText.gameObject);
-        yield return new WaitForSeconds(0.2f);
-        errorText.text = "";
     }
 
     public IEnumerator FadeIn(GameObject gObj)
