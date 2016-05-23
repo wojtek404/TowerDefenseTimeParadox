@@ -20,7 +20,7 @@ public class RangeTrigger : MonoBehaviour
             return;
 
         towerScript.inRange.Add(colGO);
-        //colGO.SendMessage("AddTower", towerScript);
+        colGO.SendMessage("AddTower", towerScript);
 
         //if an enemy has passed our range and we have an attackable target,
         //start invoking TowerBase's CheckRange() method

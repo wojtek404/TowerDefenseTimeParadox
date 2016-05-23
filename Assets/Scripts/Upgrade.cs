@@ -76,10 +76,10 @@ public class Upgrade : MonoBehaviour
         newTowerBase.StartInvoke(invokeInSec);
         GUILogic gui = GameObject.Find("GUI").GetComponent<GUILogic>();
         gui.upgrade = newUpgrade;
-        for (int i = 0; i < towerScript.inRange.Count; i++)
+        /*for (int i = 0; i < towerScript.inRange.Count; i++)
         {
             PoolManager.Props[towerScript.inRange[i].name].RemoveTower(towerScript);
-        }
+        }*/
         if (newTowerBase.turret)
         {
             if (towerScript.turret)

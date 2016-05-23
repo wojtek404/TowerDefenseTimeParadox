@@ -23,6 +23,16 @@ public class Projectile : MonoBehaviour
     public Vector3 endPos = Vector3.zero;
     private bool executed;
 
+    private float time = 0f;
+    public float lobHeight = 0f;
+
+    public enum FireMode
+    {
+        straight,
+        lob,
+    }
+    public FireMode fireMode = FireMode.straight;
+
     void Start()
     {
         StartCoroutine(OnSpawn());
@@ -44,11 +54,15 @@ public class Projectile : MonoBehaviour
             endPos = target.position;
         transform.LookAt(endPos);
 
-        while (!executed) {
-            yield return StartCoroutine("Straight");
+        if (fireMode == FireMode.lob)
+        {
+            while (!executed)
+                yield return StartCoroutine("Lob");
+        } else
+        {
+            while (!executed)
+                yield return StartCoroutine("Straight");
         }
-                    
-
     }
 
     void Straight()
@@ -61,6 +75,34 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.forward * (speed * 10) * Time.deltaTime * Time.timeScale);
 
         if (Vector3.Distance(transform.position, startPos) > Vector3.Distance(startPos, endPos) + 0.5f)
+        {
+            StartCoroutine("HandleImpact");
+        }
+    }
+
+    void Lob()
+    {
+        if (followEnemy && target && target.gameObject.activeInHierarchy)
+            endPos = target.position;
+        else if (target)
+            target = null;
+
+        time += 0.2f * Time.deltaTime;
+        float cTime = time * speed;
+
+        Vector3 currentPos = Vector3.Lerp(startPos, endPos, cTime);
+
+        currentPos.y += lobHeight * Mathf.Sin(Mathf.Clamp01(cTime) * Mathf.PI);
+
+        if (currentPos != transform.position)
+        {
+            Quaternion rotation = Quaternion.LookRotation(currentPos - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 6.0f);
+        }
+
+        transform.position = currentPos;
+
+        if (Vector3.Distance(transform.position, endPos) < 0.1f)
         {
             StartCoroutine("HandleImpact");
         }

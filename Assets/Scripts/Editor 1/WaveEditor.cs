@@ -12,7 +12,7 @@ public class WaveEditor : EditorWindow
 
     private static WaveEditor waveEditor;
 
-    [MenuItem("Window/TD Starter Kit/Wave Settings")]
+    [MenuItem("Window/Tower Defense: Time Paradox/Wave Settings")]
     static void Init()
     {
         waveEditor = (WaveEditor)EditorWindow.GetWindowWithRect(typeof(WaveEditor), new Rect(0,0,800,400), false, "Wave Settings");

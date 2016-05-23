@@ -32,7 +32,7 @@ public class Properties : MonoBehaviour
     [HideInInspector]
 	public TweenMove myMove; //obiekt ruchu
     [HideInInspector]
-    public List<TowerBase> nearTowers = new List<TowerBase>();
+    public List<TowerController> nearTowers = new List<TowerController>();
     private float time;
 
     
@@ -79,12 +79,12 @@ public class Properties : MonoBehaviour
     }
 
 
-    public void AddTower(TowerBase tower)
+    public void AddTower(TowerController tower)
     {
         nearTowers.Add(tower);
     }
 
-    public void RemoveTower(TowerBase tower)
+    public void RemoveTower(TowerController tower)
     {
         nearTowers.Remove(tower);
     }
@@ -220,7 +220,7 @@ public class Properties : MonoBehaviour
     }
 
 
-    IEnumerator RemoveEnemy()
+    void RemoveEnemy()
     {
         for (int i = 0; i < nearTowers.Count; i++)
             nearTowers[i].inRange.Remove(gameObject);
@@ -230,12 +230,12 @@ public class Properties : MonoBehaviour
             if (child.name.Contains("(Clone)"))
                 PoolManager.Pools["Particles"].Despawn(child.gameObject);
         }
-        if (myMove.pMapProperties.enabled)
+       /* if (myMove.pMapProperties.enabled)
         {
             myMove.CancelInvoke("ProgressCalc");
             ProgressMap.RemoveFromMap(myMove.pMapProperties.myID);
-        }
-        if (health <= 0)
+        }*/
+       /* if (health <= 0)
         {
             if (deathEffect)
                 PoolManager.Pools["Particles"].Spawn(deathEffect, transform.position, Quaternion.identity);
@@ -253,7 +253,7 @@ public class Properties : MonoBehaviour
                 anim.Play(successAnim.name);
                 yield return new WaitForSeconds(successAnim.length);
             }
-        }
+        }*/
 
         health = maxhealth;
         shield.value = shield.maxValue;
