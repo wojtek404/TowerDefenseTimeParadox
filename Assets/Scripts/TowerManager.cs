@@ -32,9 +32,9 @@ public class TowerManager : MonoBehaviour
             tower.transform.parent = transform;
             TowerBase tBase = tower.GetComponentInChildren<TowerBase>();
             towerBase.Add(tBase);
-            Upgrade upg = tower.GetComponentInChildren<Upgrade>();
+            /*Upgrade upg = tower.GetComponentInChildren<Upgrade>();
             towerUpgrade.Add(upg);
-            tBase.upgrade = upg;
+            tBase.upgrade = upg;*/
             tower.SetActive(false);
         }
     }
