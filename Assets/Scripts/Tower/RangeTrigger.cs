@@ -46,7 +46,7 @@ public class RangeTrigger : MonoBehaviour
             //enemy left our radius, remove from in range list
             towerScript.inRange.Remove(colGO);
             //and on the other side, remove our tower from enemy dictionary
-            //colGO.SendMessage("RemoveTower", towerScript);
+            colGO.SendMessage("RemoveTower", towerScript);
         }
     }
 }
