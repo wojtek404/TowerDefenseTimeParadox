@@ -5,11 +5,11 @@ using System.Collections.Generic;
 public class TowerManager : MonoBehaviour
 {
     public static TowerManager instance;
-    [HideInInspector]    
+    //[HideInInspector]    
     public List<string> towerNames = new List<string>();
-    [HideInInspector]
+    //[HideInInspector]
     public List<GameObject> towerPrefabs = new List<GameObject>();
-    [HideInInspector]  
+    //[HideInInspector]  
     public int sellLoss;
     [HideInInspector] 
     public List<Upgrade> towerUpgrade = new List<Upgrade>();

@@ -35,7 +35,7 @@ public class GUILogic : MonoBehaviour
         if (gridScript == null)
             Debug.LogWarning("GUI GridManager not set");
 
-        towerContainer = GameObject.Find("Towers").transform;
+        towerContainer = GameObject.Find("Tower Manager").transform;
         foreach (GameObject gui_Obj in invisibleWidgets)
         {
             gui_Obj.SetActive(false);
