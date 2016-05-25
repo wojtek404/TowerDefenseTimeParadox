@@ -11,7 +11,7 @@ public class GameInfo : MonoBehaviour
     public Text lbl_killed;
     public Text lbl_gold;
     public Text lbl_waveTimer;
-    public Text[] lbl_resources;
+    public Text lbl_resources;
 
     void Start()
     {
@@ -32,10 +32,7 @@ public class GameInfo : MonoBehaviour
             lbl_waveTimer.text = "";
         else
             lbl_waveTimer.text = waveScript.secTillWave.ToString();
-        for (int i = 0; i < lbl_resources.Length; i++)
-        {
-            lbl_resources[i].text = GameHandler.resources[i].ToString();
-        }
+            lbl_resources.text = GameHandler.resources.ToString();
     }
 
     private bool CheckWave()

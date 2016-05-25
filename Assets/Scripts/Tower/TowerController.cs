@@ -5,24 +5,37 @@ using System.Collections.Generic;
 public class TowerController : MonoBehaviour {
 
     public GameObject projectile;
-
+    public GameObject rangeInd;
+    public Transform turret;
+    [HideInInspector]
+    public float lastShot = 0f;
     [HideInInspector]
     public List<GameObject> inRange = new List<GameObject>();
 
     [HideInInspector]
     public Transform currentTarget;
+    [HideInInspector]
+    public Upgrade upgrade;
 
-    public float projSpacing = 3;
-
-    public int damage;
+    void Awake()
+    {
+        this.enabled = false;
+    }
 
     void Start () {
+        if (turret)
+        {
+            TowerRotation turScript = turret.gameObject.GetComponent<TowerRotation>();
+            if (turScript)
+                turScript.towerController = this;
+        }
         StartInvoke(0f);
     }
 
     public void StartInvoke(float delay)
     {
-        InvokeRepeating("CheckRange", delay + 0.1f, 1f);
+        if (this.enabled == true && !IsInvoking("CheckRange"))
+            InvokeRepeating("CheckRange", delay + 0.1f, upgrade.options[upgrade.curLvl].shootDelay);
     }
 
     void CheckRange()
@@ -33,27 +46,33 @@ public class TowerController : MonoBehaviour {
             currentTarget = null;
             return;
         }
-
         AutoAttack();
     }
 
     void AutoAttack()
     {
-        Transform target = GetTarget();
-        if (target == null)
+        lastShot = Time.time;
+        List<Transform> targets = GetTargets();
+        if (targets.Count == 0)
         {
             CancelInvoke("CheckRange");
-            InvokeRepeating("CheckRange", 0.5f, 1f);
+            InvokeRepeating("CheckRange", 0.5f, upgrade.options[upgrade.curLvl].shootDelay);
             return;
         }
-
-        InstantiateProjectile(target);
+        for (int i = 0; i < targets.Count; i++)
+            InstantiateProjectile(targets[i]);
     }
 
-    public Transform GetTarget()
+    public List<Transform> GetTargets()
     {
-        if (inRange.Count <= 0) return null;
-        else return inRange[0].transform;
+        int targetCount = upgrade.options[upgrade.curLvl].targetCount;
+        List<Transform> targets = new List<Transform>();
+        if (inRange.Count <= 0)
+            return targets;
+        currentTarget = inRange[0].transform;
+        for (int i = 0; i < inRange.Count && i < targetCount; i++)
+            targets.Add(inRange[i].transform);
+        return targets;
     }
 
     void InstantiateProjectile(Transform target)
@@ -63,11 +82,7 @@ public class TowerController : MonoBehaviour {
         GameObject projectileObj = (GameObject)Object.Instantiate(projectile, projectileSpawnPosition, new Quaternion());
         projectileObj.SetActive(true);
         Projectile proj = projectileObj.GetComponent<Projectile>();
-
-        proj.damage = damage;
-
+        proj.damage = upgrade.options[upgrade.curLvl].damage;
         proj.target = target;
-
-        
     }
 }

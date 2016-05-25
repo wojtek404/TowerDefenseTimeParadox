@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GUILogic : MonoBehaviour
 {
-    public TowerManager towerScript;
+    public TowerManager towerManager;
     public GridManager gridScript;
     public Camera raycastCam;
 
@@ -15,7 +15,7 @@ public class GUILogic : MonoBehaviour
 
     private Transform towerContainer;
     [HideInInspector]
-    public TowerBase towerBase;
+    public TowerController towerController;
     [HideInInspector]
     public Upgrade upgrade;
     [HideInInspector]
@@ -29,7 +29,7 @@ public class GUILogic : MonoBehaviour
 
     void Start()
     {
-        if (towerScript == null)
+        if (towerManager == null)
             Debug.LogWarning("GUI TowerManager not set");
 
         if (gridScript == null)
@@ -96,7 +96,7 @@ public class GUILogic : MonoBehaviour
     public void SetTowerComponents(GameObject tower)
     {
         upgrade = tower.GetComponent<Upgrade>();
-        towerBase = tower.GetComponent<TowerBase>();
+        towerController = tower.GetComponent<TowerController>();
     }
 
     public bool AvailableUpgrade()
@@ -123,45 +123,29 @@ public class GUILogic : MonoBehaviour
         bool affordable = true;
         int curLvl = upgrade.curLvl;
         if (AvailableUpgrade())
-        {
-            for (int i = 0; i < GameHandler.resources.Length; i++)
-            {
-                if (GameHandler.resources[i] < upgrade.options[curLvl + 1].cost[i])
-                {
-                    affordable = false;
-                    break;
-                }
-            }
-        }
+            if (GameHandler.resources < upgrade.options[curLvl + 1].cost)
+                affordable = false;
         else
             affordable = false;
 
         return affordable;
     }
 
-    public float[] GetUpgradePrice()
+    public float GetUpgradePrice()
     {
-        float[] upgradePrice = new float[GameHandler.resources.Length];
+        float upgradePrice = 0;
         int curLvl = upgrade.curLvl;
         if (AvailableUpgrade())
-        {
-            for (int i = 0; i < upgradePrice.Length; i++)
-            {
-                upgradePrice[i] = upgrade.options[curLvl + 1].cost[i];
-            }
-        }
+            upgradePrice = upgrade.options[curLvl + 1].cost;
         return upgradePrice;
     }
 
-    public float[] GetSellPrice()
+    public float GetSellPrice()
     {
-        float[] sellPrice = new float[GameHandler.resources.Length];
+        float sellPrice = 0;
         int curLvl = upgrade.curLvl;
-        for (int i = 0; i < sellPrice.Length; i++)
-        {
-            for (int j = 0; j < curLvl + 1; j++)
-                sellPrice[i] += upgrade.options[j].cost[i] * (1f - (towerScript.sellLoss / 100f));
-        }
+        for (int j = 0; j < curLvl + 1; j++)
+            sellPrice += upgrade.options[j].cost * (1f - (towerManager.sellLoss / 100f));
         return sellPrice;
     }
 
@@ -180,44 +164,38 @@ public class GUILogic : MonoBehaviour
             Debug.Log("No free grids left for placing a new tower!");
             return;
         }
-        float[] price = new float[GameHandler.resources.Length];
-        UpgOptions opt = towerScript.towerUpgrade[index].options[0];
-        for (int i = 0; i < price.Length; i++)
-            price[i] = opt.cost[i];
-        for (int i = 0; i < price.Length; i++)
+        UpgOptions opt = towerManager.towerUpgrade[index].options[0];
+        float price = opt.cost;
+        if (GameHandler.resources < price)
         {
-            if (GameHandler.resources[i] < price[i])
+            StartCoroutine("DisplayError", "Not enough resources for buying this tower!");
+            Debug.Log("Not enough resources for buying this tower!");
+            if (SV.gridSelection)
             {
-                StartCoroutine("DisplayError", "Not enough resources for buying this tower!");
-                Debug.Log("Not enough resources for buying this tower!");
-                if (SV.gridSelection)
-                {
-                    GameObject grid = SV.gridSelection;
-                    CancelSelection(true);
-                    SV.gridSelection = grid;
-                    grid.GetComponent<Renderer>().enabled = true;
-                }
-                else
-                    CancelSelection(true);
-                return;
+                GameObject grid = SV.gridSelection;
+                CancelSelection(true);
+                SV.gridSelection = grid;
+                grid.GetComponent<Renderer>().enabled = true;
             }
+            else
+                CancelSelection(true);
+            return;
         }
-        SV.selection = (GameObject)Instantiate(towerScript.towerPrefabs[index], SV.outOfView, Quaternion.identity);
-        SV.selection.name = towerScript.towerNames[index];
-        towerBase = SV.selection.GetComponentInChildren<TowerBase>();
-        towerBase.gameObject.name = towerScript.towerNames[index];
+        SV.selection = (GameObject)Instantiate(towerManager.towerPrefabs[index], SV.outOfView, Quaternion.identity);
+        SV.selection.name = towerManager.towerNames[index];
+        towerController = SV.selection.GetComponentInChildren<TowerController>();
+        towerController.gameObject.name = towerManager.towerNames[index];
         SV.selection.transform.parent = towerContainer;
         upgrade = SV.selection.GetComponentInChildren<Upgrade>();
-        towerBase.upgrade = upgrade;
-        towerBase.enabled = false;
+        towerController.upgrade = upgrade;
+        towerController.enabled = false;
         if (!SV.gridSelection)
             gridScript.ToggleVisibility(true);
     }
 
     public void BuyTower()
     {
-        for (int i = 0; i < GameHandler.resources.Length; i++)
-            GameHandler.resources[i] -= towerScript.towerUpgrade[index].options[0].cost[i];
+        GameHandler.resources -= towerManager.towerUpgrade[index].options[0].cost;
         if (SV.gridSelection)
         {
             currentGrid = SV.gridSelection;
@@ -225,25 +203,22 @@ public class GUILogic : MonoBehaviour
         }
         gridScript.GridList.Add(currentGrid.name);
         currentGrid.transform.GetComponent<Renderer>().material = gridScript.gridFullMat;
-        towerBase.enabled = true;
-        towerBase.rangeInd.GetComponent<Renderer>().enabled = false;
-
-        if (towerBase.turret)
-            towerBase.turret.gameObject.GetComponent<TowerRotation>().enabled = true;
+        towerController.enabled = true;
+        towerController.rangeInd.GetComponent<Renderer>().enabled = false;
+        if (towerController.turret)
+            towerController.turret.gameObject.GetComponent<TowerRotation>().enabled = true;
     }
 
     public void UpgradeTower()
     {
         upgrade.LVLchange();
-        for (int i = 0; i < GameHandler.resources.Length; i++)
-            GameHandler.resources[i] -= upgrade.options[upgrade.curLvl].cost[i];
+        GameHandler.resources -= upgrade.options[upgrade.curLvl].cost;
     }
 
     public void SellTower(GameObject tower)
     {
-        float[] sellPrice = GetSellPrice();
-        for(int i = 0; i < sellPrice.Length; i++)
-            GameHandler.resources[i] += sellPrice[i];    
+        float sellPrice = GetSellPrice();
+        GameHandler.resources += sellPrice;    
         Ray ray = new Ray(tower.transform.position + new Vector3(0, 0.5f, 0), -transform.up);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 20, SV.gridMask))

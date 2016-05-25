@@ -13,6 +13,7 @@ public class GUIImpl : MonoBehaviour
     public Labels labels = new Labels();
     public Control control = new Control();
     private float delay;
+    private Toggle selectedCheckbox = null;
 
     void Awake()
     {
@@ -33,12 +34,16 @@ public class GUIImpl : MonoBehaviour
     {
         SV.showUpgrade = false;
         CancelInvoke("UpdateUpgradeMenu");
+        gui.StartCoroutine("FadeOut", panels.tooltip);
         gui.StartCoroutine("FadeOut", panels.upgradeMenu);
+        selectedCheckbox = null;
         Toggle[] allToggles = buttons.towerButtons.GetComponentsInChildren<Toggle>(true);
         for (int i = 0; i < allToggles.Length; i++)
             allToggles[i].isOn = false;
-        if (gui.towerBase) gui.towerBase.rangeInd.GetComponent<Renderer>().enabled = false;
-        if (SV.gridSelection) SV.gridSelection.GetComponent<Renderer>().enabled = false;
+        if (gui.towerController)
+            gui.towerController.rangeInd.GetComponent<Renderer>().enabled = false;
+        if (SV.gridSelection)
+            SV.gridSelection.GetComponent<Renderer>().enabled = false;
         gui.CancelSelection(true);
     }
 
@@ -67,7 +72,7 @@ public class GUIImpl : MonoBehaviour
             gui.StartCoroutine("FadeOut", buttons.towerButtons);
             DisableMenus();
             SV.showExit = true;
-            Time.timeScale = 0.0001f;
+            Time.timeScale = 0.0001f; //pause
         }
     }
 
@@ -79,12 +84,12 @@ public class GUIImpl : MonoBehaviour
         else if (!gui.CheckIfGridIsFree() || gui.currentTower && gui.currentTower.transform.parent.gameObject != SV.selection)
         {
             SV.selection.transform.position = SV.outOfView;
-            }
-            else
-            {
+        }
+        else
+        {
             SV.selection.transform.position = gui.currentGrid.transform.position;
-            if (gui.towerBase.turret)
-                gui.towerBase.turret.localRotation = gui.currentGrid.transform.rotation;
+            if (gui.towerController.turret)
+                gui.towerController.turret.localRotation = gui.currentGrid.transform.rotation;
             if (Input.GetMouseButtonUp(0))
             {
                 BuyTower();
@@ -107,25 +112,26 @@ public class GUIImpl : MonoBehaviour
     {
         Transform button = buttons.towerButtons.transform.GetChild(index);
         Toggle checkbox = button.GetComponent<Toggle>();
-        if (SV.showUpgrade && gui.towerBase)
+        if (SV.showUpgrade && gui.towerController)
         {
-            gui.towerBase.rangeInd.GetComponent<Renderer>().enabled = false;
+            gui.towerController.rangeInd.GetComponent<Renderer>().enabled = false;
             SV.showUpgrade = false;
             CancelInvoke("UpdateUpgradeMenu");
         }
-        if (!checkbox || checkbox.isOn)  gui.InstantiateTower(index);
+        if (!checkbox || checkbox.isOn)
+            gui.InstantiateTower(index);
         ShowTooltipMenu(index);
         if (SV.selection)
-            gui.towerBase.rangeInd.GetComponent<Renderer>().enabled = true;
+            gui.towerController.rangeInd.GetComponent<Renderer>().enabled = true;
     }
 
     void BuyTower()
     {
-        if(buildFx)
-            PoolManager.Pools["Particles"].Spawn(buildFx, SV.selection.transform.position, Quaternion.identity);
+        //if(buildFx)
+        //    PoolManager.Pools["Particles"].Spawn(buildFx, SV.selection.transform.position, Quaternion.identity);
         gui.BuyTower();
         gui.CancelSelection(false);
-        if (gui.towerBase) gui.towerBase.rangeInd.GetComponent<Renderer>().enabled = false;
+        //if (gui.towerBase) gui.towerBase.rangeInd.GetComponent<Renderer>().enabled = false;
         gui.StartCoroutine("FadeOut", panels.tooltip);
         delay = Time.time;
     }
@@ -144,8 +150,8 @@ public class GUIImpl : MonoBehaviour
         gui.StartCoroutine("FadeIn", panels.tooltip);
         gui.StartCoroutine("FadeIn", panels.upgradeMenu);
         SV.showUpgrade = true;
-        if (gui.towerBase)
-            gui.towerBase.rangeInd.GetComponent<Renderer>().enabled = false;
+        if (gui.towerController)
+            gui.towerController.rangeInd.GetComponent<Renderer>().enabled = false;
         if (SV.gridSelection)
         {
             SV.gridSelection.GetComponent<Renderer>().enabled = false;
@@ -153,7 +159,7 @@ public class GUIImpl : MonoBehaviour
         }
         SV.gridSelection = null;
         gui.SetTowerComponents(tower);
-        gui.towerBase.rangeInd.GetComponent<Renderer>().enabled = true;
+        gui.towerController.rangeInd.GetComponent<Renderer>().enabled = true;
         UpdateUpgradeMenu();
         if(!IsInvoking("UpdateUpgradeMenu"))
             InvokeRepeating("UpdateUpgradeMenu", .5f, 1f);
@@ -189,20 +195,17 @@ public class GUIImpl : MonoBehaviour
             else
                 labels.upgradeInfo.text = "";
         }
-        float[] sellPrice = gui.GetSellPrice();
-        float[] upgradePrice = gui.GetUpgradePrice();
+        float sellPrice = gui.GetSellPrice();
+        float upgradePrice = gui.GetUpgradePrice();
         bool affordable = true;
-        for (int i = 0; i < upgradePrice.Length; i++)
-        {
-            labels.sellPrice[i].text = "$" + sellPrice[i];
+            labels.sellPrice.text = "$" + sellPrice;
             if (!gui.AvailableUpgrade())
             {
                 affordable = false;
-                labels.price[i].text = "";
-                continue;
+                labels.price.text = "";
             }
-            labels.price[i].text = "$" + upgradePrice[i];
-        }
+            else
+                labels.price.text = "$" + upgradePrice;
         if (affordable)
             affordable = gui.AffordableUpgrade();
         if (affordable)
@@ -226,9 +229,9 @@ public class GUIImpl : MonoBehaviour
         gui.StartCoroutine("FadeOut", panels.upgradeMenu);
         SV.showUpgrade = false;
         CancelInvoke("UpdateUpgradeMenu");
-        TowerBase baseOptions = null;
-        UpgOptions upgOptions = null;
-        if (SV.selection)
+        //TowerBase baseOptions = null;
+        //UpgOptions upgOptions = null;
+        /*if (SV.selection)
         {
             baseOptions = gui.towerBase;
             upgOptions = gui.upgrade.options[0];
@@ -237,20 +240,20 @@ public class GUIImpl : MonoBehaviour
         {
             baseOptions = gui.towerScript.towerBase[index];
             upgOptions = gui.towerScript.towerUpgrade[index].options[0];
-        }
-        labels.headerName.text = gui.towerScript.towerNames[index];
+        }*/
+        labels.headerName.text = gui.towerManager.towerNames[index];
         labels.properties.text = "Projectile:" + "\n" +
                                 "Radius:" + "\n" +
                                 "Damage:" + "\n" +
                                 "Delay:" + "\n" +
                                 "Targets:";
-        labels.stats.text = baseOptions.projectile.name + "\n" +
+        /*labels.stats.text = baseOptions.projectile.name + "\n" +
                                 upgOptions.radius + "\n" +
                                 upgOptions.damage + "\n" +
                                 upgOptions.shootDelay + "\n" +
                                 baseOptions.myTargets;
         for (int i = 0; i < GameHandler.resources.Length; i++)
-            labels.price[i].text = "$" + upgOptions.cost[i];
+            labels.price[i].text = "$" + upgOptions.cost[i];*/
     }
 
     public void ExitMenu(int index)
@@ -284,7 +287,7 @@ public class GUIImpl : MonoBehaviour
     {
         int curLvl = gui.upgrade.curLvl;
         float shootDelay = gui.upgrade.options[curLvl].shootDelay;
-        float remainTime = gui.towerBase.lastShot + shootDelay - Time.time;
+        float remainTime = gui.towerController.lastShot + shootDelay - Time.time;
         if (remainTime < 0) remainTime = 0;
         Slider slider = control.relSlider;
         float curValue = 1 - (remainTime / shootDelay);
@@ -301,7 +304,7 @@ public class GUIImpl : MonoBehaviour
             if (shootDelay != gui.upgrade.options[curLvl].shootDelay)
             {
                 shootDelay = gui.upgrade.options[curLvl].shootDelay;
-                remainTime = gui.towerBase.lastShot + shootDelay - Time.time;
+                remainTime = gui.towerController.lastShot + shootDelay - Time.time;
                 if (remainTime < 0) remainTime = 0;
                 t = 0;
             }
@@ -349,11 +352,8 @@ public class GUIImpl : MonoBehaviour
         public Text properties;      
         public Text stats;           
         public Text upgradeInfo;   
-        public Text[] price;         
-        public Text[] sellPrice;   
-        public Text passivePUName;   
-        public Text passivePUDescription;
-        public Text[] passivePUPrice; 
+        public Text price;         
+        public Text sellPrice;   
     }
 
 

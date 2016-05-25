@@ -5,7 +5,7 @@ public class GameHandler : MonoBehaviour
 {
     public static GameHandler instance;    //singleton
     public static float gameHealth = 1f;   //zycie zamku
-    public static float[] resources;  //zasoby do kupowania wiez
+    public static float resources;  //zasoby do kupowania wiez
     public static int enemiesAlive;  //przeciwnicy zyjacy
     public static int enemiesKilled;    //przeciwnicy zabici
     public static bool gameOver = false;    //flaga game over
@@ -13,7 +13,7 @@ public class GameHandler : MonoBehaviour
     public static string waveCount = "oo"; //ile max fal na gre
     public static float maxHealth = 1f;
     public float maxGameHealth = 1f;
-    public float[] startResources;
+    public float startResources;
 
     public string nextScene;
     public string gameOverScene;
@@ -51,9 +51,9 @@ public class GameHandler : MonoBehaviour
         }
     }
 
-    public static void SetResources(int index, float points)
+    public static void SetResources(float points)
     {
-        resources[index] += points;
+        resources += points;
     }
 
     public static void EnemyWasKilled()

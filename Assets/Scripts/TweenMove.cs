@@ -31,7 +31,7 @@ public class TweenMove : MonoBehaviour
         StartMove();
         if (pMapProperties.enabled)
         {
-            ProgressMap.AddToMap(pMapProperties.prefab, pMapProperties.myID);
+            //ProgressMap.AddToMap(pMapProperties.prefab, pMapProperties.myID);
             InvokeRepeating("ProgressCalc", 0.5f, pMapProperties.updateInterval);
         }
     }
@@ -73,7 +73,7 @@ public class TweenMove : MonoBehaviour
     void ProgressCalc()
     {
         float progress = tween.fullElapsed / tween.fullDuration;
-        ProgressMap.CalcInMap(pMapProperties.myID, progress);
+        //ProgressMap.CalcInMap(pMapProperties.myID, progress);
     }
 
     public void Slow()

@@ -5,7 +5,7 @@ public class TowerRotation : MonoBehaviour
 {
     public float damping = 0f;
     [HideInInspector]
-	public TowerBase towerScript;
+	public TowerController towerController;
 
     void Awake()
     {
@@ -14,11 +14,11 @@ public class TowerRotation : MonoBehaviour
 
     void Update()
     {
-        Transform rotateTo = towerScript.currentTarget;
-        if (rotateTo && !towerScript.inRange.Contains(rotateTo.gameObject))
+        Transform rotateTo = towerController.currentTarget;
+        if (rotateTo && !towerController.inRange.Contains(rotateTo.gameObject))
         {
-            if (towerScript.inRange.Count > 0)
-                rotateTo = towerScript.inRange[0].transform;
+            if (towerController.inRange.Count > 0)
+                rotateTo = towerController.inRange[0].transform;
             else
                 rotateTo = null;
         }

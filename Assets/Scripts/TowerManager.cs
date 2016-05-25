@@ -14,7 +14,7 @@ public class TowerManager : MonoBehaviour
     [HideInInspector] 
     public List<Upgrade> towerUpgrade = new List<Upgrade>();
     [HideInInspector]
-    public List<TowerBase> towerBase = new List<TowerBase>();
+    public List<TowerController> towerController = new List<TowerController>();
 
     void Start()
     {
@@ -22,19 +22,15 @@ public class TowerManager : MonoBehaviour
         for (int i = 0; i < towerNames.Count; i++)
         {
             if (towerPrefabs[i] == null)
-            {
-                Debug.LogWarning("Prefab not set for tower " + (i+1) + " in TowerManager!");
                 return;
-            }
-
             GameObject tower = (GameObject)Instantiate(towerPrefabs[i], SV.outOfView, Quaternion.identity);
             tower.name = towerNames[i];
             tower.transform.parent = transform;
-            TowerBase tBase = tower.GetComponentInChildren<TowerBase>();
-            towerBase.Add(tBase);
-            /*Upgrade upg = tower.GetComponentInChildren<Upgrade>();
-            towerUpgrade.Add(upg);
-            tBase.upgrade = upg;*/
+            TowerController tController = tower.GetComponentInChildren<TowerController>();
+            towerController.Add(tController);
+            Upgrade upgrade = tower.GetComponentInChildren<Upgrade>();
+            towerUpgrade.Add(upgrade);
+            tController.upgrade = upgrade;
             tower.SetActive(false);
         }
     }

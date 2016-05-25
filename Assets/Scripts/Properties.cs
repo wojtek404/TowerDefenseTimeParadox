@@ -27,7 +27,7 @@ public class Properties : MonoBehaviour
     public Color fullHealthColor = Color.green;
     public Color zeroHealthColor = Color.red;
 
-    public float[] pointsToEarn;  //ile moze ukrasc skarbu
+    public float pointsToEarn;  //ile daje resources po smierci
     public int damageToDeal = 1;    //ew. ile punktow zycia naszego zamku moze za razem zabrac
     [HideInInspector]
 	public TweenMove myMove; //obiekt ruchu
@@ -103,8 +103,7 @@ public class Properties : MonoBehaviour
             OnHit();
         else if (health <= 0)
         {
-            for (int i = 0; i < pointsToEarn.Length; i++)
-                GameHandler.SetResources(i, pointsToEarn[i]);
+            GameHandler.SetResources(pointsToEarn);
             GameHandler.EnemyWasKilled();
             OnDeath();
         }

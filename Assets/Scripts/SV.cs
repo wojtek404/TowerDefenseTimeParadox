@@ -12,7 +12,7 @@ public class SV : MonoBehaviour
     public static int worldMask;
     public static int enemyMask;
     public static int enemyLayer;
-    public static Vector3 outOfView = new Vector3(0, -300, 0);
+    public static Vector3 outOfView = new Vector3(0, -1000, 0);
     public static GameObject selection;
     public static GameObject gridSelection;
     public static GameObject powerUpIndicator;
