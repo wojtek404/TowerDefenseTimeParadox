@@ -22,10 +22,9 @@ public class Properties : MonoBehaviour
     public AnimationClip dieAnim;  //animacja smierci
 	public AnimationClip successAnim; //animacja w przypadku powodzenia
 
-    public Slider slider;
-    public Image fillImage;
-    public Color fullHealthColor = Color.green;
-    public Color zeroHealthColor = Color.red;
+    private Image fillImage;
+    private Color fullHealthColor = Color.green;
+    private Color zeroHealthColor = Color.red;
 
     public float pointsToEarn;  //ile daje resources po smierci
     public int damageToDeal = 1;    //ew. ile punktow zycia naszego zamku moze za razem zabrac
@@ -40,6 +39,11 @@ public class Properties : MonoBehaviour
 
     void Start()
     {
+        fillImage = healthbar.transform.FindChild("Fill Area").FindChild("Fill").gameObject.GetComponent<Image>();
+        float adjustedScale = 1 / healthbar.transform.lossyScale.x;
+        healthbar.transform.localScale = new Vector3(adjustedScale, adjustedScale, adjustedScale);
+        adjustedScale = 1 / fillImage.transform.lossyScale.x;
+        fillImage.transform.localScale = new Vector3(adjustedScale, adjustedScale, adjustedScale);
         PoolManager.Props.Add(gameObject.name, this);
         myMove = gameObject.GetComponent<TweenMove>();
         anim = gameObject.GetComponentInChildren<Animation>();
@@ -113,7 +117,7 @@ public class Properties : MonoBehaviour
 
     private void SetHealthUI()
     {
-        slider.value = health;
+        healthbar.value = health / maxhealth;
 
         fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, health / maxhealth);
     }
@@ -219,7 +223,7 @@ public class Properties : MonoBehaviour
     }
 
 
-    public IEnumerator RemoveEnemy()
+    void RemoveEnemy()
     {
         for (int i = 0; i < nearTowers.Count; i++)
             nearTowers[i].inRange.Remove(gameObject);
@@ -229,12 +233,12 @@ public class Properties : MonoBehaviour
             if (child.name.Contains("(Clone)"))
                 PoolManager.Pools["Particles"].Despawn(child.gameObject);
         }
-        if (myMove.pMapProperties.enabled)
+       /* if (myMove.pMapProperties.enabled)
         {
             myMove.CancelInvoke("ProgressCalc");
             ProgressMap.RemoveFromMap(myMove.pMapProperties.myID);
-        }
-        if (health <= 0)
+        }*/
+       /* if (health <= 0)
         {
             if (deathEffect)
                 PoolManager.Pools["Particles"].Spawn(deathEffect, transform.position, Quaternion.identity);
@@ -252,7 +256,7 @@ public class Properties : MonoBehaviour
                 anim.Play(successAnim.name);
                 yield return new WaitForSeconds(successAnim.length);
             }
-        }
+        }*/
 
         health = maxhealth;
         shield.value = shield.maxValue;
