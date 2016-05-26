@@ -102,14 +102,6 @@ public class EnemySetup : EditorWindow
                     Slider healthbar = healthbarTrans.GetComponent<Slider>();
                     properties.healthbar = healthbar;
                 }
-                Transform shieldbarTrans = hudBar.transform.FindChild("shieldbar");
-                if (shieldbarTrans)
-                {
-                    Slider shieldbar = shieldbarTrans.GetComponent<Slider>();
-                    properties.shield = new Shield();
-                    properties.shield.bar = shieldbar;
-                    properties.shield.enabled = true;
-                }
             }
             if (shadow)
             {

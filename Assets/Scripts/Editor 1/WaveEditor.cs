@@ -44,7 +44,6 @@ public class WaveEditor : EditorWindow
             WaveOptions newWave = new WaveOptions();
             newWave.enemyPrefab.Add(null);
             newWave.enemyHP.Add(0);
-            newWave.enemySH.Add(0);
             newWave.enemyCount.Add(1);
             newWave.startDelayMin.Add(0);
             newWave.startDelayMax.Add(0);
@@ -126,16 +125,12 @@ public class WaveEditor : EditorWindow
 
                 for (int h = waveScript.options[i].enemyHP.Count; h < waveScript.options[i].enemyPrefab.Count; h++)
                     waveScript.options[i].enemyHP.Add(0);
-                for (int h = waveScript.options[i].enemySH.Count; h < waveScript.options[i].enemyPrefab.Count; h++)
-                    waveScript.options[i].enemySH.Add(0);
 
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Space(40);
                 waveScript.options[i].enemyPrefab[j] = (GameObject)EditorGUILayout.ObjectField(waveScript.options[i].enemyPrefab[j], typeof(GameObject), false, GUILayout.Width(115));
                 GUILayout.Space(15);
                 waveScript.options[i].enemyHP[j] = EditorGUILayout.FloatField(waveScript.options[i].enemyHP[j], GUILayout.Width(50));
-                GUILayout.Space(20);
-                waveScript.options[i].enemySH[j] = EditorGUILayout.FloatField(waveScript.options[i].enemySH[j], GUILayout.Width(50));
                 GUILayout.Space(25);
                 waveScript.options[i].enemyCount[j] = EditorGUILayout.IntField(waveScript.options[i].enemyCount[j], GUILayout.Width(40));
                 GUILayout.Space(35);
@@ -151,7 +146,6 @@ public class WaveEditor : EditorWindow
                     Undo.RecordObject(waveScript, "DeleteRow");
                     waveScript.options[i].enemyPrefab.RemoveAt(j);
                     waveScript.options[i].enemyHP.RemoveAt(j);
-                    waveScript.options[i].enemySH.RemoveAt(j);
                     waveScript.options[i].enemyCount.RemoveAt(j);
                     waveScript.options[i].startDelayMin.RemoveAt(j);
                     waveScript.options[i].startDelayMax.RemoveAt(j);
@@ -177,7 +171,6 @@ public class WaveEditor : EditorWindow
                 Undo.RecordObject(waveScript, "AddRow");
                 waveScript.options[i].enemyPrefab.Add(null);
                 waveScript.options[i].enemyHP.Add(0);
-                waveScript.options[i].enemySH.Add(0);
                 waveScript.options[i].enemyCount.Add(1);
                 waveScript.options[i].startDelayMin.Add(0);
                 waveScript.options[i].startDelayMax.Add(0);
@@ -192,7 +185,6 @@ public class WaveEditor : EditorWindow
                 WaveOptions newWave = new WaveOptions();
                 newWave.enemyPrefab.Add(null);
                 newWave.enemyHP.Add(0);
-                newWave.enemySH.Add(0);
                 newWave.enemyCount.Add(1);
                 newWave.startDelayMin.Add(0);
                 newWave.startDelayMax.Add(0);

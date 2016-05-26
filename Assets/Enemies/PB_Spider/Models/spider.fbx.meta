@@ -125,8 +125,11 @@ ModelImporter:
     7400004: jump
     7400006: attack
     7400008: die
+    7400010: walk0
     9500000: //RootNode
+    11100000: //RootNode
     13700000: mesh
+    13700002: root
   materials:
     importMaterials: 1
     materialName: 1
@@ -145,159 +148,15 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 0
+    animationWrapMode: 2
     extraExposedTransformPaths: []
     clipAnimations:
-    - serializedVersion: 16
-      name: idle
-      takeName: idle
-      firstFrame: 1
-      lastFrame: 60
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: mesh
-        weight: 1
-      - path: root
-        weight: 1
-      - path: root/L_fourth_1
-        weight: 1
-      - path: root/L_fourth_1/L_fourth_2
-        weight: 1
-      - path: root/L_fourth_1/L_fourth_2/L_fourth_3
-        weight: 1
-      - path: root/L_fourth_1/L_fourth_2/L_fourth_3/L_fourth_4
-        weight: 1
-      - path: root/L_fourth_1/L_fourth_2/L_fourth_3/L_fourth_4/L_fourth_5
-        weight: 1
-      - path: root/R_fourth_1
-        weight: 1
-      - path: root/R_fourth_1/R_fourth_2
-        weight: 1
-      - path: root/R_fourth_1/R_fourth_2/R_fourth_3
-        weight: 1
-      - path: root/R_fourth_1/R_fourth_2/R_fourth_3/R_fourth_4
-        weight: 1
-      - path: root/R_fourth_1/R_fourth_2/R_fourth_3/R_fourth_4/R_fourth_5
-        weight: 1
-      - path: root/spine_1
-        weight: 1
-      - path: root/spine_1/L_third_1
-        weight: 1
-      - path: root/spine_1/L_third_1/L_third_2
-        weight: 1
-      - path: root/spine_1/L_third_1/L_third_2/L_third_3
-        weight: 1
-      - path: root/spine_1/L_third_1/L_third_2/L_third_3/L_third_4
-        weight: 1
-      - path: root/spine_1/L_third_1/L_third_2/L_third_3/L_third_4/L_third_5
-        weight: 1
-      - path: root/spine_1/R_third_1
-        weight: 1
-      - path: root/spine_1/R_third_1/R_third_2
-        weight: 1
-      - path: root/spine_1/R_third_1/R_third_2/R_third_3
-        weight: 1
-      - path: root/spine_1/R_third_1/R_third_2/R_third_3/R_third_4
-        weight: 1
-      - path: root/spine_1/R_third_1/R_third_2/R_third_3/R_third_4/R_third_5
-        weight: 1
-      - path: root/spine_1/spine_2
-        weight: 1
-      - path: root/spine_1/spine_2/L_second_1
-        weight: 1
-      - path: root/spine_1/spine_2/L_second_1/L_second_2
-        weight: 1
-      - path: root/spine_1/spine_2/L_second_1/L_second_2/L_second_3
-        weight: 1
-      - path: root/spine_1/spine_2/L_second_1/L_second_2/L_second_3/L_second_4
-        weight: 1
-      - path: root/spine_1/spine_2/L_second_1/L_second_2/L_second_3/L_second_4/L_second_5
-        weight: 1
-      - path: root/spine_1/spine_2/R_second_1
-        weight: 1
-      - path: root/spine_1/spine_2/R_second_1/R_second_2
-        weight: 1
-      - path: root/spine_1/spine_2/R_second_1/R_second_2/R_second_3
-        weight: 1
-      - path: root/spine_1/spine_2/R_second_1/R_second_2/R_second_3/R_second_4
-        weight: 1
-      - path: root/spine_1/spine_2/R_second_1/R_second_2/R_second_3/R_second_4/R_second_5
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/L_first_1
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/L_first_1/L_first_2
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/L_first_1/L_first_2/L_first_3
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/L_first_1/L_first_2/L_first_3/L_first_4
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/L_first_1/L_first_2/L_first_3/L_first_4/L_first_5
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/R_first_1
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/R_first_1/R_first_2
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/R_first_1/R_first_2/R_first_3
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/R_first_1/R_first_2/R_first_3/R_first_4
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/R_first_1/R_first_2/R_first_3/R_first_4/R_first_5
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/spine_4
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/spine_4/L_fang_1
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/spine_4/L_fang_1/L_fang_2
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/spine_4/L_fang_1/L_fang_2/L_fang_3
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/spine_4/L_fang_1/L_fang_2/L_fang_3/L_fang_4
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/spine_4/R_fang_1
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/spine_4/R_fang_1/R_fang_2
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/spine_4/R_fang_1/R_fang_2/R_fang_3
-        weight: 1
-      - path: root/spine_1/spine_2/spine_3/spine_4/R_fang_1/R_fang_2/R_fang_3/R_fang_4
-        weight: 1
-      - path: root/tail_1
-        weight: 1
-      - path: root/tail_1/tail_2
-        weight: 1
-      - path: root/tail_1/tail_2/tail_3
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: walk
       takeName: walk
       firstFrame: 61
       lastFrame: 90
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -889,7 +748,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
+    tangentImportMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -905,7 +764,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

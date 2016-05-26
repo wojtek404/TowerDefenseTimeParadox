@@ -12,7 +12,6 @@ public class GUIImpl : MonoBehaviour
     public Buttons buttons = new Buttons();
     public Labels labels = new Labels();
     private float delay;
-    private Toggle selectedCheckbox = null;
 
     void Awake()
     {
@@ -35,7 +34,6 @@ public class GUIImpl : MonoBehaviour
         CancelInvoke("UpdateUpgradeMenu");
         gui.StartCoroutine("FadeOut", panels.tooltip);
         gui.StartCoroutine("FadeOut", panels.upgradeMenu);
-        selectedCheckbox = null;
         Toggle[] allToggles = buttons.towerButtons.GetComponentsInChildren<Toggle>(true);
         for (int i = 0; i < allToggles.Length; i++)
             allToggles[i].isOn = false;
@@ -283,12 +281,8 @@ public class GUIImpl : MonoBehaviour
         public GameObject button_sell;      
         public GameObject button_upgrade;  
         public GameObject button_abort;     
-
-        //public GameObject button_showPassive; 
-        //public GameObject button_buyPassive; 
 		
-        public GameObject button_exit;      
-        //public GameObject mobile_shoot;    
+        public GameObject button_exit;       
     }
 
 

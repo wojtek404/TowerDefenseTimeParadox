@@ -9,8 +9,6 @@ public class Properties : MonoBehaviour
     [HideInInspector]
     public float maxhealth;          //max zycie
     public Slider healthbar;        //pasek zycia
-    public Shield shield;       //wartosc tarczy/zbroi
-    private RectTransform barParentTrans;
 
     public GameObject hitEffect;    //efekt czasteczkowy uderzenia
     public GameObject deathEffect;  //efeket czasteczkowy smierci
@@ -44,15 +42,12 @@ public class Properties : MonoBehaviour
         healthbar.transform.localScale = new Vector3(adjustedScale, adjustedScale, adjustedScale);
         adjustedScale = 1 / fillImage.transform.lossyScale.x;
         fillImage.transform.localScale = new Vector3(adjustedScale, adjustedScale, adjustedScale);
+
         PoolManager.Props.Add(gameObject.name, this);
         myMove = gameObject.GetComponent<TweenMove>();
         anim = gameObject.GetComponentInChildren<Animation>();
         myMove.maxSpeed = myMove.speed;
         myMove.pMapProperties.myID = gameObject.GetInstanceID();
-        /*if (healthbar)
-            barParentTrans = healthbar.transform.parent.GetComponent<RectTransform>();
-        else */if (shield.bar)
-            barParentTrans = shield.bar.transform.parent.GetComponent<RectTransform>();
     }
 
     IEnumerator OnSpawn()
@@ -63,23 +58,8 @@ public class Properties : MonoBehaviour
             anim[walkAnim.name].time = Random.Range(0f, anim[walkAnim.name].length);
             anim.Play(walkAnim.name);
         }
-        if (barParentTrans) 
-        {
-            RectTransform[] rects = GetComponentsInChildren<RectTransform>();
-            for (int i = 0; i < rects.Length; i++)
-                rects[i].anchoredPosition = Vector2.zero;
-        }
         maxhealth = health;
-        shield.maxValue = shield.value;
-
         SetHealthUI();
-    }
-
-    void LateUpdate()
-    {
-        Quaternion rot = Camera.main.transform.rotation;
-        if (barParentTrans)
-            barParentTrans.rotation = rot;
     }
 
 
@@ -96,12 +76,6 @@ public class Properties : MonoBehaviour
     public void Hit(float damage)
     {
         if (!IsAlive()) return;
-        if (shield.enabled)
-        {
-            damage = HitShield(damage);
-            StopCoroutine("RegenerateShield");
-            StartCoroutine("RegenerateShield");
-        }
         health -= damage;
         if (health > 0 && Time.time > time + 2)
             OnHit();
@@ -111,49 +85,13 @@ public class Properties : MonoBehaviour
             GameHandler.EnemyWasKilled();
             OnDeath();
         }
-        SetUnitFrame();
         SetHealthUI();
     }
 
     private void SetHealthUI()
     {
         healthbar.value = health / maxhealth;
-
         fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, health / maxhealth);
-    }
-
-    public void SetUnitFrame()
-    {
-        //if (healthbar)
-        //    healthbar.value = health / maxhealth;
-        if (shield.bar)
-            shield.bar.value = shield.value / shield.maxValue;
-    }
-
-    float HitShield(float damage)
-    {
-        float currentValue = shield.value;
-        shield.value -= damage;
-        if (shield.value < 0) shield.value = 0;
-        damage -= currentValue;
-        if (damage < 0) damage = 0;
-        return damage;
-    }
-
-    IEnumerator RegenerateShield()
-    {
-        if (shield.regenValue <= 0) yield break;
-        yield return new WaitForSeconds(shield.delay);
-        while (shield.value < shield.maxValue)
-        {
-            if (shield.regenType == TDValue.fix)
-                shield.value += shield.regenValue;
-            else
-                shield.value += Mathf.Round(shield.maxValue * shield.regenValue * 100f) / 100f;
-            shield.value = Mathf.Clamp(shield.value, 0f, shield.maxValue);
-            shield.bar.value = shield.value / shield.maxValue;
-            yield return new WaitForSeconds(shield.interval);
-        }
     }
 	
     void OnHit()
@@ -259,11 +197,8 @@ public class Properties : MonoBehaviour
         }*/
 
         health = maxhealth;
-        shield.value = shield.maxValue;
-        //if (healthbar)
-        //    healthbar.value = 1;
-        if (shield.bar)
-            shield.bar.value = 1;
+        if (healthbar)
+            healthbar.value = 1;
         PoolManager.Pools["Enemies"].Despawn(gameObject);
     }
 	
@@ -271,19 +206,4 @@ public class Properties : MonoBehaviour
     {
         PoolManager.Props.Remove(gameObject.name);
     }
-}
-
-
-[System.Serializable]
-public class Shield
-{
-    public bool enabled = false;        //aktywna
-    public Slider bar;                //pasek zbroi
-    public float value = 10;            //wartosc obrazen
-    [HideInInspector]
-    public float maxValue;
-    public TDValue regenType = TDValue.fix;
-    public float regenValue = 0;
-    public float interval = 1;
-    public float delay = 1;
 }

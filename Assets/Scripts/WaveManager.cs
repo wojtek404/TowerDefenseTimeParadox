@@ -202,8 +202,6 @@ public class WaveManager : MonoBehaviour
         Properties prop = enemy.GetComponentInChildren<Properties>();
         if (options[waveNo].enemyHP[index] > 0)
             prop.health = options[waveNo].enemyHP[index];
-        if (options[waveNo].enemySH[index] > 0)
-            prop.shield.value = options[waveNo].enemySH[index];
         GameHandler.enemiesAlive++;
     }
 
@@ -254,22 +252,6 @@ public class WaveManager : MonoBehaviour
                         option.enemyHP[j] = Mathf.Round(option.enemyHP[j] * endlessOptions.increaseHP.value
                                             * 100f) / 100f;
                 }
-                if (endlessOptions.increaseSH.enabled)
-                {
-                    if (option.enemySH[j] == 0)
-                    {
-                        Properties prop = option.enemyPrefab[j].GetComponent<Properties>();
-                        if (prop.shield.enabled)
-                            option.enemySH[j] = prop.shield.value;
-                        else
-                            continue;
-                    }
-                    if (endlessOptions.increaseSH.type == TDValue.fix)
-                        option.enemySH[j] += endlessOptions.increaseSH.value;
-                    else
-                        option.enemySH[j] = Mathf.Round(option.enemySH[j] * endlessOptions.increaseSH.value
-                                            * 100f) / 100f;
-                }
             }
         }
     }
@@ -286,7 +268,6 @@ public enum TDValue
 public class EndlessOptions
 {
     public Setting increaseHP = new Setting();
-    public Setting increaseSH = new Setting();
     public Setting increaseAmount = new Setting();
     [System.Serializable]
     public class Setting
@@ -320,7 +301,6 @@ public class WaveOptions
 {
     public List<GameObject> enemyPrefab = new List<GameObject>();
     public List<float> enemyHP = new List<float>();
-    public List<float> enemySH = new List<float>();
     public List<int> enemyCount = new List<int>();
     public List<float> startDelayMin = new List<float>();
     public List<float> startDelayMax = new List<float>();
