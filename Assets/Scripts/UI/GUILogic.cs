@@ -102,10 +102,7 @@ public class GUILogic : MonoBehaviour
     public bool AvailableUpgrade()
     {
         if (upgrade == null)
-        {
-            Debug.Log("Can't check for available upgrades, upgrade script isn't set.");
             return false;
-        }
         bool available = true;
         int curLvl = upgrade.curLvl;
         if (curLvl >= upgrade.options.Count - 1)
@@ -116,15 +113,14 @@ public class GUILogic : MonoBehaviour
     public bool AffordableUpgrade()
     {
         if (upgrade == null)
-        {
-            Debug.Log("Can't check for affordable upgrade, upgrade script isn't set.");
             return false;
-        }
         bool affordable = true;
         int curLvl = upgrade.curLvl;
         if (AvailableUpgrade())
+        {
             if (GameHandler.resources < upgrade.options[curLvl + 1].cost)
                 affordable = false;
+        }
         else
             affordable = false;
 

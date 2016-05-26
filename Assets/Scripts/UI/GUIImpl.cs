@@ -11,7 +11,6 @@ public class GUIImpl : MonoBehaviour
     public Panels panels = new Panels();
     public Buttons buttons = new Buttons();
     public Labels labels = new Labels();
-    public Control control = new Control();
     private float delay;
     private Toggle selectedCheckbox = null;
 
@@ -22,7 +21,7 @@ public class GUIImpl : MonoBehaviour
 
     void Start()
     {
-        
+        DisableMenus();
     }
 
     void OnDestroy()
@@ -199,14 +198,14 @@ public class GUIImpl : MonoBehaviour
         float sellPrice = gui.GetSellPrice();
         float upgradePrice = gui.GetUpgradePrice();
         bool affordable = true;
-            labels.sellPrice.text = "$" + sellPrice;
-            if (!gui.AvailableUpgrade())
-            {
-                affordable = false;
-                labels.price.text = "";
-            }
-            else
-                labels.price.text = "$" + upgradePrice;
+        labels.sellPrice.text = "$" + sellPrice;
+        if (!gui.AvailableUpgrade())
+        {
+            affordable = false;
+            labels.price.text = "";
+        }
+        else
+            labels.price.text = "$" + upgradePrice;
         if (affordable)
             affordable = gui.AffordableUpgrade();
         if (affordable)
@@ -246,15 +245,12 @@ public class GUIImpl : MonoBehaviour
         labels.properties.text = "Projectile:" + "\n" +
                                 "Radius:" + "\n" +
                                 "Damage:" + "\n" +
-                                "Delay:" + "\n" +
-                                "Targets:";
-        /*labels.stats.text = baseOptions.projectile.name + "\n" +
+                                "Delay:" + "\n";
+        labels.stats.text = baseOptions.projectile.name + "\n" +
                                 upgOptions.radius + "\n" +
                                 upgOptions.damage + "\n" +
-                                upgOptions.shootDelay + "\n" +
-                                baseOptions.myTargets;
-        for (int i = 0; i < GameHandler.resources.Length; i++)
-            labels.price[i].text = "$" + upgOptions.cost[i];*/
+                                upgOptions.shootDelay + "\n";
+        labels.price.text = "$" + upgOptions.cost;
     }
 
     public void ExitMenu(int index)
@@ -268,63 +264,13 @@ public class GUIImpl : MonoBehaviour
         }
     }
 
-    void RepositionTowerButtons(Vector3 pos)
-    {
-        Transform towerBtns = buttons.towerButtons.transform;
-        Camera cam = Camera.main;
-        Vector3 mPos = cam.WorldToScreenPoint(pos);
-        mPos.z = 0;
-        if (cam != null)
-        {          
-            towerBtns.position = mPos;
-            mPos = towerBtns.localPosition;
-            mPos.x = Mathf.Round(mPos.x);
-            mPos.y = Mathf.Round(mPos.y);
-            towerBtns.localPosition = mPos;
-        }
-    }
-
-    public IEnumerator DrawReload()
-    {
-        int curLvl = gui.upgrade.curLvl;
-        float shootDelay = gui.upgrade.options[curLvl].shootDelay;
-        float remainTime = gui.towerController.lastShot + shootDelay - Time.time;
-        if (remainTime < 0) remainTime = 0;
-        Slider slider = control.relSlider;
-        float curValue = 1 - (remainTime / shootDelay);
-        slider.value = curValue;
-        control.relSprite.color = Color.yellow;
-        if (curValue == 1)
-        {
-            control.relSprite.color = Color.green;
-            yield break;
-        }
-        float t = 0f;
-        while (t < 1)
-        {
-            if (shootDelay != gui.upgrade.options[curLvl].shootDelay)
-            {
-                shootDelay = gui.upgrade.options[curLvl].shootDelay;
-                remainTime = gui.towerController.lastShot + shootDelay - Time.time;
-                if (remainTime < 0) remainTime = 0;
-                t = 0;
-            }
-            t += Time.deltaTime / remainTime;
-            slider.value = t;
-            yield return null;
-        }
-        control.relSprite.color = Color.green;
-    }
-
-    
-
     [System.Serializable]
     public class Panels
     {
         public GameObject main;         
         public GameObject upgradeMenu; 
         public GameObject tooltip;      
-        public GameObject control;      
+       // public GameObject control;      
     }
 
 
@@ -338,11 +284,11 @@ public class GUIImpl : MonoBehaviour
         public GameObject button_upgrade;  
         public GameObject button_abort;     
 
-        public GameObject button_showPassive; 
-        public GameObject button_buyPassive; 
+        //public GameObject button_showPassive; 
+        //public GameObject button_buyPassive; 
 		
         public GameObject button_exit;      
-        public GameObject mobile_shoot;    
+        //public GameObject mobile_shoot;    
     }
 
 
@@ -364,15 +310,5 @@ public class GUIImpl : MonoBehaviour
         public AudioClip build;     
         public AudioClip sell;      
         public AudioClip upgrade;   
-    }
-
-    [System.Serializable]
-    public class Control
-    {
-        public GameObject crosshair;
-        public GameObject aimIndicator;
-        public float towerHeight = 10f;
-        public Slider relSlider;   
-        public Image relSprite;    
     }
 }

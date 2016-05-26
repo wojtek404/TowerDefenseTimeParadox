@@ -8,9 +8,7 @@ public class RangeTrigger : MonoBehaviour
 
     void Start()
     {
-        //towerController = transform.gameObject.GetComponentInParent<TowerController>();
         towerController = transform.parent.GetComponentInChildren<TowerController>();
-        Debug.Log("object: " + transform.parent.ToString());
     }
 
     void OnTriggerEnter(Collider col)

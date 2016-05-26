@@ -34,18 +34,15 @@ public class TowerController : MonoBehaviour {
 
     public void StartInvoke(float delay)
     {
-        Debug.Log("Start Invoke");
         if (this.enabled == true && !IsInvoking("CheckRange"))
             InvokeRepeating("CheckRange", delay + 0.1f, upgrade.options[upgrade.curLvl].shootDelay);
     }
 
     void CheckRange()
     {
-        Debug.Log("Check Range");
-        Debug.Log(inRange.Count);
         if (inRange.Count == 0)
         {
-            //CancelInvoke("CheckRange");
+            CancelInvoke("CheckRange");
             currentTarget = null;
             return;
         }
@@ -54,7 +51,6 @@ public class TowerController : MonoBehaviour {
 
     void AutoAttack()
     {
-        Debug.Log("Auto Attack");
         lastShot = Time.time;
         List<Transform> targets = GetTargets();
         if (targets.Count == 0)
