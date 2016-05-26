@@ -131,7 +131,8 @@ public class GUIImpl : MonoBehaviour
         //    PoolManager.Pools["Particles"].Spawn(buildFx, SV.selection.transform.position, Quaternion.identity);
         gui.BuyTower();
         gui.CancelSelection(false);
-        //if (gui.towerBase) gui.towerBase.rangeInd.GetComponent<Renderer>().enabled = false;
+        if (gui.towerController)
+            gui.towerController.rangeInd.GetComponent<Renderer>().enabled = false;
         gui.StartCoroutine("FadeOut", panels.tooltip);
         delay = Time.time;
     }
@@ -229,18 +230,18 @@ public class GUIImpl : MonoBehaviour
         gui.StartCoroutine("FadeOut", panels.upgradeMenu);
         SV.showUpgrade = false;
         CancelInvoke("UpdateUpgradeMenu");
-        //TowerBase baseOptions = null;
-        //UpgOptions upgOptions = null;
-        /*if (SV.selection)
+        TowerController baseOptions = null;
+        UpgOptions upgOptions = null;
+        if (SV.selection)
         {
-            baseOptions = gui.towerBase;
+            baseOptions = gui.towerController;
             upgOptions = gui.upgrade.options[0];
         }
         else
         {
-            baseOptions = gui.towerScript.towerBase[index];
-            upgOptions = gui.towerScript.towerUpgrade[index].options[0];
-        }*/
+            baseOptions = gui.towerManager.towerController[index];
+            upgOptions = gui.towerManager.towerUpgrade[index].options[0];
+        }
         labels.headerName.text = gui.towerManager.towerNames[index];
         labels.properties.text = "Projectile:" + "\n" +
                                 "Radius:" + "\n" +
