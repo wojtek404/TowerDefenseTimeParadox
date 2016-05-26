@@ -58,6 +58,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -115,7 +121,6 @@
     <Compile Include="Assets\Scripts\Tower\Projectile.cs" />
     <Compile Include="Assets\Scripts\Tower\RangeTrigger.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerController.cs" />
-    <Compile Include="Assets\Scripts\TowerBase.cs" />
     <Compile Include="Assets\Scripts\TowerManager.cs" />
     <Compile Include="Assets\Scripts\TowerRotation.cs" />
     <Compile Include="Assets\Scripts\TweenMove.cs" />
@@ -137,6 +142,7 @@
     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
     <None Include="Assets\Day-Night Skyboxes\readme.txt" />
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
+    <None Include="Assets\Enemies\tripods\Materials\lightbeam.shader" />
     <None Include="Assets\Moba_Camera\Readme\readme.txt" />
     <None Include="Assets\Modular Space Raider\Shader\Dynamic_Illum_Spec.shader" />
     <None Include="Assets\Modular Space Raider\Shader\how_to_use.txt" />
