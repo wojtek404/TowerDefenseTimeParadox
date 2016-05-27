@@ -161,7 +161,7 @@ public class Properties : MonoBehaviour
     }
 
 
-    void RemoveEnemy()
+    public IEnumerator RemoveEnemy()
     {
         for (int i = 0; i < nearTowers.Count; i++)
             nearTowers[i].inRange.Remove(gameObject);
@@ -171,12 +171,12 @@ public class Properties : MonoBehaviour
             if (child.name.Contains("(Clone)"))
                 PoolManager.Pools["Particles"].Despawn(child.gameObject);
         }
-       /* if (myMove.pMapProperties.enabled)
+       if (myMove.pMapProperties.enabled)
         {
             myMove.CancelInvoke("ProgressCalc");
             ProgressMap.RemoveFromMap(myMove.pMapProperties.myID);
-        }*/
-       /* if (health <= 0)
+        }
+        if (health <= 0)
         {
             if (deathEffect)
                 PoolManager.Pools["Particles"].Spawn(deathEffect, transform.position, Quaternion.identity);
@@ -194,7 +194,7 @@ public class Properties : MonoBehaviour
                 anim.Play(successAnim.name);
                 yield return new WaitForSeconds(successAnim.length);
             }
-        }*/
+        }
 
         health = maxhealth;
         if (healthbar)

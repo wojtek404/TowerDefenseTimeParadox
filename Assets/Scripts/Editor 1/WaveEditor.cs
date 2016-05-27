@@ -77,8 +77,8 @@ public class WaveEditor : EditorWindow
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(170);
         GUILayout.Label("Health", EditorStyles.boldLabel, GUILayout.Width(75));
-        GUILayout.Label("Shield", EditorStyles.boldLabel, GUILayout.Width(80));
-        GUILayout.Space(70);
+        GUILayout.Label("Count", EditorStyles.boldLabel, GUILayout.Width(80));
+        GUILayout.Space(0);
         GUILayout.Label("From-To", EditorStyles.boldLabel, GUILayout.Width(110));
         GUILayout.Label("From-To", EditorStyles.boldLabel, GUILayout.Width(125));
         EditorGUILayout.EndHorizontal();
