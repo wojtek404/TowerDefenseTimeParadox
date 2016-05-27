@@ -57,6 +57,7 @@
      <Compile Include="Assets\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
      <Compile Include="Assets\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
      <None Include="Assets\Moba_Camera\Readme\readme.txt" />
+     <None Include="Assets\Day-Night Skyboxes\readme.txt" />
      <None Include="Assets\Modular Space Raider\readme.txt" />
      <None Include="Assets\Modular Space Raider\Shader\how_to_use.txt" />
      <None Include="Assets\Modular Space Raider\Shader\Dynamic_Illum_Spec.shader" />
@@ -65,6 +66,7 @@
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\CUSTOM\LASciFiPanel\_ProductFeatures.txt" />
      <None Include="Assets\CUSTOM\LASciFiPanel\_Instructions.txt" />
+     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Small stones\Shader\Matte Shadow Mask.shader" />
      <None Include="Assets\PyroParticles\Readme.txt" />
@@ -75,6 +77,7 @@
      <None Include="Assets\Bezier\readme.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
+     <None Include="Assets\Enemies\tripods\Materials\lightbeam.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
