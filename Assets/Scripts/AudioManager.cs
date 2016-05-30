@@ -36,8 +36,9 @@ public class AudioManager : MonoBehaviour
 	//play sound clip passed in on attached audio source
 	//when the audio source is set to loop within the inspector,
 	//this method can be used for looping background music
-    public static void Play(AudioClip clip)
+    public static void Play(AudioClip clip, float volume)
     {
+        audioSource.volume = volume;
     	//abort execution clip wasn't set or music already playing
         if (clip == null || audioSource.clip == clip) return;
 
@@ -94,13 +95,12 @@ public class AudioManager : MonoBehaviour
     //play sound clip passed in only one time
     //for 2D sounds! to play 3D sounds use Play(clip, position)
     //PlayOneShot() requires a reference to run on 
-    public static void Play2D(AudioClip clip)
+    public static void Play2D(AudioClip clip, float volume)
     {
         //abort execution if clip wasn't set
         if (clip == null) return;
-
         //play oneshot clip on this reference
-        reference.GetComponent<AudioSource>().PlayOneShot(clip);
+        reference.GetComponent<AudioSource>().PlayOneShot(clip, volume);
     }
 
 

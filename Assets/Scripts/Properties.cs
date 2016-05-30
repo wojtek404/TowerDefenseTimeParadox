@@ -97,7 +97,7 @@ public class Properties : MonoBehaviour
     void OnHit()
     {
         time = Time.time;
-
+        AudioManager.Play2D(hitSound, 0.5f);
         if (hitEffect)
             PoolManager.Pools["Particles"].Spawn(hitEffect, transform.position, hitEffect.transform.rotation);
     }
@@ -180,6 +180,7 @@ public class Properties : MonoBehaviour
         {
             if (deathEffect)
                 PoolManager.Pools["Particles"].Spawn(deathEffect, transform.position, Quaternion.identity);
+            AudioManager.Play2D(deathSound, 1.0f);
 
             if (dieAnim)
             {
