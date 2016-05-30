@@ -3,7 +3,126 @@ guid: 8a08159ff62511b4baed459732da8a24
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: Biped_Skeleton
+    100002: Biped_Skeleton_Chest
+    100004: Biped_Skeleton_Chest1
+    100006: Biped_Skeleton_ChestEffector
+    100008: Biped_Skeleton_eff
+    100010: Biped_Skeleton_eff1
+    100012: Biped_Skeleton_eff14
+    100014: Biped_Skeleton_eff15
+    100016: Biped_Skeleton_eff16
+    100018: Biped_Skeleton_eff17
+    100020: Biped_Skeleton_GlobalSRT
+    100022: Biped_Skeleton_LBicep
+    100024: Biped_Skeleton_LFootBone1
+    100026: Biped_Skeleton_LFootBone2
+    100028: Biped_Skeleton_LFootBone3
+    100030: Biped_Skeleton_LFootRoot
+    100032: Biped_Skeleton_LForearm
+    100034: Biped_Skeleton_LHand
+    100036: Biped_Skeleton_LHandRoot
+    100038: Biped_Skeleton_LRoot
+    100040: Biped_Skeleton_LRoot1
+    100042: Biped_Skeleton_LShin
+    100044: Biped_Skeleton_LShoulder
+    100046: Biped_Skeleton_LShoulderRoot
+    100048: Biped_Skeleton_LThigh
+    100050: Biped_Skeleton_RBicep
+    100052: Biped_Skeleton_RFootBone1
+    100054: Biped_Skeleton_RFootBone2
+    100056: Biped_Skeleton_RFootBone3
+    100058: Biped_Skeleton_RFootRoot
+    100060: Biped_Skeleton_RForearm
+    100062: Biped_Skeleton_RHand
+    100064: Biped_Skeleton_RHandRoot
+    100066: Biped_Skeleton_RRoot
+    100068: Biped_Skeleton_RRoot1
+    100070: Biped_Skeleton_RShin
+    100072: Biped_Skeleton_RShoulder
+    100074: Biped_Skeleton_RShoulderRoot
+    100076: Biped_Skeleton_RThigh
+    100078: Biped_Skeleton_Spine1
+    100080: Biped_Skeleton_Spine2
+    100082: Biped_Skeleton_Spine3
+    100084: Biped_Skeleton_Spine4
+    100086: Biped_Skeleton_Spine5
+    100088: Biped_Skeleton_Spine6
+    100090: Biped_Skeleton_SpineRoot
+    100092: Biped_Skeleton_SpineRoot1
+    100094: Biped_Skeleton_UpperBody
+    100096: Body
+    100098: Body0
+    100100: Scene_Root
+    100102: U3DMesh
+    100104: untitled
+    100106: //RootNode
+    400000: Biped_Skeleton
+    400002: Biped_Skeleton_Chest
+    400004: Biped_Skeleton_Chest1
+    400006: Biped_Skeleton_ChestEffector
+    400008: Biped_Skeleton_eff
+    400010: Biped_Skeleton_eff1
+    400012: Biped_Skeleton_eff14
+    400014: Biped_Skeleton_eff15
+    400016: Biped_Skeleton_eff16
+    400018: Biped_Skeleton_eff17
+    400020: Biped_Skeleton_GlobalSRT
+    400022: Biped_Skeleton_LBicep
+    400024: Biped_Skeleton_LFootBone1
+    400026: Biped_Skeleton_LFootBone2
+    400028: Biped_Skeleton_LFootBone3
+    400030: Biped_Skeleton_LFootRoot
+    400032: Biped_Skeleton_LForearm
+    400034: Biped_Skeleton_LHand
+    400036: Biped_Skeleton_LHandRoot
+    400038: Biped_Skeleton_LRoot
+    400040: Biped_Skeleton_LRoot1
+    400042: Biped_Skeleton_LShin
+    400044: Biped_Skeleton_LShoulder
+    400046: Biped_Skeleton_LShoulderRoot
+    400048: Biped_Skeleton_LThigh
+    400050: Biped_Skeleton_RBicep
+    400052: Biped_Skeleton_RFootBone1
+    400054: Biped_Skeleton_RFootBone2
+    400056: Biped_Skeleton_RFootBone3
+    400058: Biped_Skeleton_RFootRoot
+    400060: Biped_Skeleton_RForearm
+    400062: Biped_Skeleton_RHand
+    400064: Biped_Skeleton_RHandRoot
+    400066: Biped_Skeleton_RRoot
+    400068: Biped_Skeleton_RRoot1
+    400070: Biped_Skeleton_RShin
+    400072: Biped_Skeleton_RShoulder
+    400074: Biped_Skeleton_RShoulderRoot
+    400076: Biped_Skeleton_RThigh
+    400078: Biped_Skeleton_Spine1
+    400080: Biped_Skeleton_Spine2
+    400082: Biped_Skeleton_Spine3
+    400084: Biped_Skeleton_Spine4
+    400086: Biped_Skeleton_Spine5
+    400088: Biped_Skeleton_Spine6
+    400090: Biped_Skeleton_SpineRoot
+    400092: Biped_Skeleton_SpineRoot1
+    400094: Biped_Skeleton_UpperBody
+    400096: Body
+    400098: Body0
+    400100: Scene_Root
+    400102: U3DMesh
+    400104: untitled
+    400106: //RootNode
     4300000: U3DMesh
+    7400000: idle
+    7400002: walk
+    7400004: run
+    7400006: die
+    7400008: idle0
+    7400010: attack1
+    7400012: attack2
+    7400014: attack3
+    7400016: attack4
+    11100000: //RootNode
+    13700000: U3DMesh
   materials:
     importMaterials: 1
     materialName: 3
@@ -22,7 +141,7 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 0
+    animationWrapMode: 2
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
@@ -58,7 +177,7 @@ ModelImporter:
       takeName: 
       firstFrame: 247
       lastFrame: 278
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -77,7 +196,115 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body0
+        weight: 1
+      - path: U3DMesh
+        weight: 1
+      - path: untitled
+        weight: 1
+      - path: untitled/Scene_Root
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_LRoot1
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_LRoot1/Biped_Skeleton_LThigh
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_LRoot1/Biped_Skeleton_LThigh/Biped_Skeleton_LShin
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_LRoot1/Biped_Skeleton_LThigh/Biped_Skeleton_LShin/Biped_Skeleton_eff16
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_LRoot1/Biped_Skeleton_LThigh/Biped_Skeleton_LShin/Biped_Skeleton_eff16/Biped_Skeleton_LFootRoot
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_LRoot1/Biped_Skeleton_LThigh/Biped_Skeleton_LShin/Biped_Skeleton_eff16/Biped_Skeleton_LFootRoot/Biped_Skeleton_LFootBone1
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_LRoot1/Biped_Skeleton_LThigh/Biped_Skeleton_LShin/Biped_Skeleton_eff16/Biped_Skeleton_LFootRoot/Biped_Skeleton_LFootBone1/Biped_Skeleton_LFootBone2
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_LRoot1/Biped_Skeleton_LThigh/Biped_Skeleton_LShin/Biped_Skeleton_eff16/Biped_Skeleton_LFootRoot/Biped_Skeleton_LFootBone1/Biped_Skeleton_LFootBone2/Biped_Skeleton_LFootBone3
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_RRoot1
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_RRoot1/Biped_Skeleton_RThigh
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_RRoot1/Biped_Skeleton_RThigh/Biped_Skeleton_RShin
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_RRoot1/Biped_Skeleton_RThigh/Biped_Skeleton_RShin/Biped_Skeleton_eff17
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_RRoot1/Biped_Skeleton_RThigh/Biped_Skeleton_RShin/Biped_Skeleton_eff17/Biped_Skeleton_RFootRoot
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_RRoot1/Biped_Skeleton_RThigh/Biped_Skeleton_RShin/Biped_Skeleton_eff17/Biped_Skeleton_RFootRoot/Biped_Skeleton_RFootBone1
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_RRoot1/Biped_Skeleton_RThigh/Biped_Skeleton_RShin/Biped_Skeleton_eff17/Biped_Skeleton_RFootRoot/Biped_Skeleton_RFootBone1/Biped_Skeleton_RFootBone2
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_RRoot1/Biped_Skeleton_RThigh/Biped_Skeleton_RShin/Biped_Skeleton_eff17/Biped_Skeleton_RFootRoot/Biped_Skeleton_RFootBone1/Biped_Skeleton_RFootBone2/Biped_Skeleton_RFootBone3
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_LShoulderRoot
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_LShoulderRoot/Biped_Skeleton_LShoulder
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_LShoulderRoot/Biped_Skeleton_LShoulder/Biped_Skeleton_eff1
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_LShoulderRoot/Biped_Skeleton_LShoulder/Biped_Skeleton_eff1/Biped_Skeleton_LRoot
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_LShoulderRoot/Biped_Skeleton_LShoulder/Biped_Skeleton_eff1/Biped_Skeleton_LRoot/Biped_Skeleton_LBicep
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_LShoulderRoot/Biped_Skeleton_LShoulder/Biped_Skeleton_eff1/Biped_Skeleton_LRoot/Biped_Skeleton_LBicep/Biped_Skeleton_LForearm
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_LShoulderRoot/Biped_Skeleton_LShoulder/Biped_Skeleton_eff1/Biped_Skeleton_LRoot/Biped_Skeleton_LBicep/Biped_Skeleton_LForearm/Biped_Skeleton_eff15
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_LShoulderRoot/Biped_Skeleton_LShoulder/Biped_Skeleton_eff1/Biped_Skeleton_LRoot/Biped_Skeleton_LBicep/Biped_Skeleton_LForearm/Biped_Skeleton_eff15/Biped_Skeleton_LHandRoot
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_LShoulderRoot/Biped_Skeleton_LShoulder/Biped_Skeleton_eff1/Biped_Skeleton_LRoot/Biped_Skeleton_LBicep/Biped_Skeleton_LForearm/Biped_Skeleton_eff15/Biped_Skeleton_LHandRoot/Biped_Skeleton_LHand
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_RShoulderRoot
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_RShoulderRoot/Biped_Skeleton_RShoulder
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_RShoulderRoot/Biped_Skeleton_RShoulder/Biped_Skeleton_eff
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_RShoulderRoot/Biped_Skeleton_RShoulder/Biped_Skeleton_eff/Biped_Skeleton_RRoot
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_RShoulderRoot/Biped_Skeleton_RShoulder/Biped_Skeleton_eff/Biped_Skeleton_RRoot/Biped_Skeleton_RBicep
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_RShoulderRoot/Biped_Skeleton_RShoulder/Biped_Skeleton_eff/Biped_Skeleton_RRoot/Biped_Skeleton_RBicep/Biped_Skeleton_RForearm
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_RShoulderRoot/Biped_Skeleton_RShoulder/Biped_Skeleton_eff/Biped_Skeleton_RRoot/Biped_Skeleton_RBicep/Biped_Skeleton_RForearm/Biped_Skeleton_eff14
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_RShoulderRoot/Biped_Skeleton_RShoulder/Biped_Skeleton_eff/Biped_Skeleton_RRoot/Biped_Skeleton_RBicep/Biped_Skeleton_RForearm/Biped_Skeleton_eff14/Biped_Skeleton_RHandRoot
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_RShoulderRoot/Biped_Skeleton_RShoulder/Biped_Skeleton_eff/Biped_Skeleton_RRoot/Biped_Skeleton_RBicep/Biped_Skeleton_RForearm/Biped_Skeleton_eff14/Biped_Skeleton_RHandRoot/Biped_Skeleton_RHand
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_SpineRoot1
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_SpineRoot1/Biped_Skeleton_Spine4
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_SpineRoot1/Biped_Skeleton_Spine4/Biped_Skeleton_Spine5
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_SpineRoot1/Biped_Skeleton_Spine4/Biped_Skeleton_Spine5/Biped_Skeleton_Spine6
+        weight: 1
+      - path: untitled/Scene_Root/Biped_Skeleton/Biped_Skeleton_GlobalSRT/Biped_Skeleton_UpperBody/Biped_Skeleton_SpineRoot/Biped_Skeleton_Spine1/Biped_Skeleton_Spine2/Biped_Skeleton_Spine3/Biped_Skeleton_Chest/Biped_Skeleton_ChestEffector/Biped_Skeleton_SpineRoot1/Biped_Skeleton_Spine4/Biped_Skeleton_Spine5/Biped_Skeleton_Spine6/Biped_Skeleton_Chest1
+        weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0

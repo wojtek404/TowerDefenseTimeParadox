@@ -40,6 +40,7 @@ ModelImporter:
     7400014: PA_DroneSlowFromLeft_Clip
     7400016: PA_DroneExplode_Clip
     9500000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 1
@@ -58,7 +59,7 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 0
+    animationWrapMode: 1
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
@@ -66,7 +67,7 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 1
       lastFrame: 20
-      wrapMode: 0
+      wrapMode: 1
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -85,7 +86,19 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: PA_Drone
+        weight: 1
+      - path: PA_Drone/PA_DroneWingLeft
+        weight: 1
+      - path: PA_Drone/PA_DroneWingLeft/PA_DroneBladeLeft
+        weight: 1
+      - path: PA_Drone/PA_DroneWingRight
+        weight: 1
+      - path: PA_Drone/PA_DroneWingRight/PA_DroneBladeRight
+        weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
@@ -350,7 +363,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 1
   userData: 

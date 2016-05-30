@@ -76,6 +76,10 @@ public class TweenMove : MonoBehaviour
     }
     internal void OnUpdate()
     {
+        if(walkSound == null)
+        {
+            return;
+        }
         float seconds = walkSound.length;
         int seconds2 = (int)(seconds * 30);
         if(seconds2 < 30)
