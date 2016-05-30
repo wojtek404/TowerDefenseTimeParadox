@@ -8,6 +8,10 @@ public class TweenMove : MonoBehaviour
 {
     [HideInInspector]
     public PathManager pathContainer;
+    [HideInInspector]
+    public static int counter = 0;
+    public static bool flag = false;
+    public AudioClip walkSound;     //dzwiek chodzenia
     public PathType pathtype = PathType.Curved;
     public bool orientToPath = false;
     public float sizeToAdd = 0;
@@ -62,7 +66,28 @@ public class TweenMove : MonoBehaviour
         tParms.SpeedBased();
         tParms.Ease(EaseType.Linear);
         tParms.OnComplete(OnPathComplete);
+        if (!flag)
+        {
+            flag = true;
+            tParms.OnUpdate(OnUpdate);
+        }
+        //tParms.OnPlay(OnUpdate);
         tween = HOTween.To(transform, maxSpeed, tParms);
+    }
+    internal void OnUpdate()
+    {
+        float seconds = walkSound.length;
+        int seconds2 = (int)(seconds * 30);
+        if(seconds2 < 30)
+        {
+            seconds2 = 30;
+        }
+        if (counter % seconds2 == 0)
+        {
+            counter = 0;
+            AudioManager.Play2D(walkSound, 1.0f);
+        }
+        counter++;
     }
 
     internal void OnPathComplete()

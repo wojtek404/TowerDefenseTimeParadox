@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
 {
     //audio source to play sound on
     private static AudioSource audioSource;
+    private static AudioSource secondSource;
     //reference to this (own) script for oneshot sounds, they need a base script to run on
     private static AudioManager reference;
 
@@ -26,8 +27,9 @@ public class AudioManager : MonoBehaviour
         reference = this;
         //get audio source component attached to this gameobject
         audioSource = gameObject.GetComponent<AudioSource>();
+        secondSource = gameObject.GetComponent<AudioSource>();
 
-		//debug a warning if no audio source was attached and it's null
+        //debug a warning if no audio source was attached and it's null
         if (!audioSource)
             Debug.LogWarning("Audio Manager has no Audio Source component attached!");
     }
@@ -46,6 +48,18 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = clip;
         //play assigned audio clip
         audioSource.Play();
+    }
+
+    public static void Play2(AudioClip clip, float volume)
+    {
+        secondSource.volume = volume;
+        //abort execution clip wasn't set or music already playing
+        if (clip == null || secondSource.clip == clip) return;
+
+        //assign audio clip to audio source
+        secondSource.clip = clip;
+        //play assigned audio clip
+        secondSource.Play();
     }
 
 

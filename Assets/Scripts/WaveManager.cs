@@ -81,7 +81,7 @@ public class WaveManager : MonoBehaviour
 
             Debug.Log("Wave Defeated");
             AudioManager.Play(sounds.backgroundMusic, 0.5f);
-            AudioManager.Play2D(sounds.waveEndSound, 1.0f);
+            AudioManager.Play2D(sounds.waveEndSuccesSound, 1.0f);
 
         }
         else
@@ -90,7 +90,7 @@ public class WaveManager : MonoBehaviour
                 return;
             AudioManager.Play(sounds.backgroundMusic, 0.5f);
 
-            AudioManager.Play2D(sounds.waveEndSound, 1.0f);
+            AudioManager.Play2D(sounds.waveEndDefeatSound, 1.0f);
             GameHandler.gameOver = true;
         }
         CancelInvoke("CheckStatus");
@@ -301,7 +301,8 @@ public class WaveSounds
 {
     public AudioClip waveStartSound;
     public AudioClip battleMusic;
-    public AudioClip waveEndSound;
+    public AudioClip waveEndSuccesSound;
+    public AudioClip waveEndDefeatSound;
     public AudioClip backgroundMusic;
 }
 
