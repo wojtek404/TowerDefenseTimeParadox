@@ -58,6 +58,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -76,13 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Bezier\Example\BezierController.cs" />
-    <Compile Include="Assets\Enemies\AllStarCharacterLibrary\AmazingAmazons\StayInPlace.cs" />
-    <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\CamTarget.cs" />
-    <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\CharacterDemoController.cs" />
-    <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\MouseOrbit.cs" />
-    <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\Outfitter.cs" />
-    <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\RootMotionOff.cs" />
-    <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\SkinnedMeshCombiner.cs" />
     <Compile Include="Assets\MSFMC_RadarDish\Prefabs\RotatingDish.cs" />
     <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera.cs" />
     <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera_Boundaries.cs" />
