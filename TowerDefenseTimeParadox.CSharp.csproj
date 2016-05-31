@@ -121,6 +121,7 @@
     <Compile Include="Assets\Scripts\UseCase.cs" />
     <Compile Include="Assets\Scripts\WaveManager.cs" />
     <Compile Include="Assets\Scripts\WaypointManager.cs" />
+    <Compile Include="Assets\StartTheEngines.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\!SCI_FI_Modular_Pack_Free\AdditiveTint.shader" />
