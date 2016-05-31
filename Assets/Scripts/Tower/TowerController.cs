@@ -25,9 +25,9 @@ public class TowerController : MonoBehaviour {
     void Start () {
         if (turret)
         {
-            TowerRotation turScript = turret.gameObject.GetComponent<TowerRotation>();
-            if (turScript)
-                turScript.towerController = this;
+            TowerRotation towerRotation = turret.gameObject.GetComponent<TowerRotation>();
+            if (towerRotation)
+                towerRotation.towerController = this;
         }
         StartInvoke(0f);
     }

@@ -7,6 +7,8 @@ public class TowerRotation : MonoBehaviour
     [HideInInspector]
 	public TowerController towerController;
 
+    public float initialRotationY = 0f;
+
     void Awake()
     {
         this.enabled = false;
@@ -25,7 +27,8 @@ public class TowerRotation : MonoBehaviour
         if(!rotateTo)
             return;
         Vector3 dir = rotateTo.position - transform.position;
+        dir.y += initialRotationY;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime / (damping / 10));
-		transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, 0f);
+		transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + initialRotationY, 0f);
     }
 }
