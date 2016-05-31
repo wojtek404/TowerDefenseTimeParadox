@@ -17,6 +17,8 @@ public class TowerController : MonoBehaviour {
     [HideInInspector]
     public Upgrade upgrade;
 
+    public Transform projectileSpawnPoint;
+
     void Awake()
     {
         this.enabled = false;
@@ -77,9 +79,7 @@ public class TowerController : MonoBehaviour {
 
     void InstantiateProjectile(Transform target)
     {
-        Vector3 projectileSpawnPosition = transform.position;
-        projectileSpawnPosition.y = 15;
-        GameObject projectileObj = (GameObject)Object.Instantiate(projectile, projectileSpawnPosition, new Quaternion());
+        GameObject projectileObj = (GameObject)Object.Instantiate(projectile, projectileSpawnPoint.position, new Quaternion());
         projectileObj.SetActive(true);
         Projectile proj = projectileObj.GetComponent<Projectile>();
         proj.damage = upgrade.options[upgrade.curLvl].damage;
