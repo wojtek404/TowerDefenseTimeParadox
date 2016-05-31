@@ -12,6 +12,7 @@ public class TweenMove : MonoBehaviour
     public static int counter = 0;
     public static bool flag = false;
     public AudioClip walkSound;     //dzwiek chodzenia
+    public int walkVolume;
     public PathType pathtype = PathType.Curved;
     public bool orientToPath = false;
     public float sizeToAdd = 0;
@@ -89,7 +90,10 @@ public class TweenMove : MonoBehaviour
         if (counter % seconds2 == 0)
         {
             counter = 0;
-            AudioManager.Play2D(walkSound, 1.0f);
+            if (walkVolume > 100) walkVolume = 100;
+            if (walkVolume < 0) walkVolume = 0;
+            float volume = (float)(walkVolume) / 100.0f;
+            AudioManager.Play2D(walkSound, volume);
         }
         counter++;
     }
