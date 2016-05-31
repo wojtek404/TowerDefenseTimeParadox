@@ -77,6 +77,9 @@
   <ItemGroup>
     <Compile Include="Assets\Bezier\Example\BezierController.cs" />
     <Compile Include="Assets\MSFMC_RadarDish\Prefabs\RotatingDish.cs" />
+    <Compile Include="Assets\Missile Systems\Missile\Missile.cs" />
+    <Compile Include="Assets\Missile Systems\Missile\ShootObject.cs" />
+    <Compile Include="Assets\Missile Systems\ParticleDespawn.cs" />
     <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera.cs" />
     <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera_Boundaries.cs" />
     <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera_Boundary.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Assets\Scripts\UseCase.cs" />
     <Compile Include="Assets\Scripts\WaveManager.cs" />
     <Compile Include="Assets\Scripts\WaypointManager.cs" />
+    <Compile Include="Assets\StartTheEngines.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\!SCI_FI_Modular_Pack_Free\AdditiveTint.shader" />

@@ -17,6 +17,10 @@ public class TowerController : MonoBehaviour {
     [HideInInspector]
     public Upgrade upgrade;
 
+    public Transform projectileSpawnPoint;
+    public GameObject projectileFiringEffect;
+
+
     void Awake()
     {
         this.enabled = false;
@@ -25,9 +29,9 @@ public class TowerController : MonoBehaviour {
     void Start () {
         if (turret)
         {
-            TowerRotation turScript = turret.gameObject.GetComponent<TowerRotation>();
-            if (turScript)
-                turScript.towerController = this;
+            TowerRotation towerRotation = turret.gameObject.GetComponent<TowerRotation>();
+            if (towerRotation)
+                towerRotation.towerController = this;
         }
         StartInvoke(0f);
     }
@@ -77,10 +81,18 @@ public class TowerController : MonoBehaviour {
 
     void InstantiateProjectile(Transform target)
     {
-        Vector3 projectileSpawnPosition = transform.position;
-        projectileSpawnPosition.y = 15;
-        GameObject projectileObj = (GameObject)Object.Instantiate(projectile, projectileSpawnPosition, new Quaternion());
+        GameObject projectileObj = (GameObject)Object.Instantiate(projectile, projectileSpawnPoint.position, new Quaternion());
         projectileObj.SetActive(true);
+
+        if (projectileFiringEffect)
+        {
+            Quaternion firingEffectRotation = Quaternion.Euler(0, turret.rotation.eulerAngles.y + 90, 0);
+            Vector3 firingEffectPosition = projectileSpawnPoint.position;
+            firingEffectPosition.z += 2;
+            firingEffectPosition.y += 0.2f;
+            Object.Instantiate(projectileFiringEffect, firingEffectPosition, firingEffectRotation);
+        }
+
         Projectile proj = projectileObj.GetComponent<Projectile>();
         proj.damage = upgrade.options[upgrade.curLvl].damage;
         proj.target = target;

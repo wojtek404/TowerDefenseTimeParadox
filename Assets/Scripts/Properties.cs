@@ -14,6 +14,7 @@ public class Properties : MonoBehaviour
     public GameObject deathEffect;  //efeket czasteczkowy smierci
     public AudioClip hitSound;   //dzwiek uderzenia
     public AudioClip deathSound; //dzwiek smierci
+    public int effectsVolume;
     [HideInInspector]
     public Animation anim;
     public AnimationClip walkAnim;  //animacja ruchu
@@ -93,11 +94,19 @@ public class Properties : MonoBehaviour
         healthbar.value = health / maxhealth;
         fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, health / maxhealth);
     }
+
+    internal float getEffectsVolume()
+    {
+        if (effectsVolume > 100) effectsVolume = 100;
+        if (effectsVolume < 0) effectsVolume = 0;
+        float volume = (float)(effectsVolume) / 100.0f;
+        return volume;
+    }
 	
     void OnHit()
     {
         time = Time.time;
-        AudioManager.Play2D(hitSound, 0.5f);
+        AudioManager.Play2D(hitSound, getEffectsVolume());
         if (hitEffect)
             PoolManager.Pools["Particles"].Spawn(hitEffect, transform.position, hitEffect.transform.rotation);
     }
@@ -180,7 +189,7 @@ public class Properties : MonoBehaviour
         {
             if (deathEffect)
                 PoolManager.Pools["Particles"].Spawn(deathEffect, transform.position, Quaternion.identity);
-            AudioManager.Play2D(deathSound, 1.0f);
+            AudioManager.Play2D(deathSound, getEffectsVolume());
 
             if (dieAnim)
             {

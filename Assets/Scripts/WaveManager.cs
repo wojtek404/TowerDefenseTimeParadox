@@ -36,6 +36,7 @@ public class WaveManager : MonoBehaviour
     public EndlessOptions endlessOptions = new EndlessOptions();
     public WaveAnimations anims = new WaveAnimations();
     public WaveSounds sounds = new WaveSounds();
+    public int mainSoundVolume;
 
     [HideInInspector]
     public float secTillWave = 0;
@@ -103,7 +104,10 @@ public class WaveManager : MonoBehaviour
             PoolManager.DestroyAllInactive(true);
         if(GameHandler.wave > 0)
             IncreaseSettings();
-        AudioManager.Play(sounds.battleMusic, 0.05f);
+        if(mainSoundVolume > 100) mainSoundVolume = 100;
+        if (mainSoundVolume < 0) mainSoundVolume = 0;
+        float volume = (float)(mainSoundVolume) / 500.0f; //wyjątek bo strasznie głośne to było wiec ograniczyłem do 20%
+        AudioManager.Play(sounds.battleMusic, volume);
         AudioManager.Play2D(sounds.waveStartSound, 1.0f);
 
         if (anims.spawnStart)
