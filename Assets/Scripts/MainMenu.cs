@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.SceneManagement;
 using System.Collections;
 
 public class MainMenu : MonoBehaviour
@@ -51,6 +52,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadButton(string sceneName)
     {
+        this.sceneName = sceneName;
         if (!IsInvoking("LoadGame"))
         {
             InvokeRepeating("LoadGame", 0f, 0.2f);
@@ -61,17 +63,18 @@ public class MainMenu : MonoBehaviour
 
     void LoadGame()
     {
-        if (Application.CanStreamedLevelBeLoaded(sceneName))
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+        asyncOperation.allowSceneActivation = true;
+        if (asyncOperation.isDone)
         {
             progressSlider.value = 1f;
             progressText.text = 100 + "%";
-            Application.LoadLevel(sceneName);
-            //SceneManager.LoadScene(sceneName);
         }
         else
         {
-            progressSlider.value = Application.GetStreamProgressForLevel(sceneName);
-            progressText.text = ((int)(Application.GetStreamProgressForLevel(sceneName) * 100)) + "%";
+            float progressValue = asyncOperation.progress;
+            progressSlider.value = progressValue;
+            progressText.text = ((int)(progressValue * 100)) + "%";
         }
     }
 

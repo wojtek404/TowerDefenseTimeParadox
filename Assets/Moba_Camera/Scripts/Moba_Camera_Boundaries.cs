@@ -145,6 +145,7 @@ public class Moba_Camera_Boundaries {
 		foreach(Moba_Camera_Boundary boundary in cube_boundaries) {
 			// check if the boundary is not active. if true, skip it.
 			if(boundary.isActive == false) continue;
+            if (boundary == null) continue;
 			BoxCollider boxCollider = boundary.GetComponent<BoxCollider>();
 			if(boxCollider == null) {
 				Debug.LogWarning("Boundary: " + boundary.name + "; Error: BoundaryType and Collider mismatch."); 	
