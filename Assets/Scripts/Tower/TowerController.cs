@@ -18,7 +18,6 @@ public class TowerController : MonoBehaviour {
     public Upgrade upgrade;
 
     public Transform projectileSpawnPoint;
-    public GameObject projectileFiringEffect;
 
 
     void Awake()
@@ -83,15 +82,6 @@ public class TowerController : MonoBehaviour {
     {
         GameObject projectileObj = (GameObject)Object.Instantiate(projectile, projectileSpawnPoint.position, new Quaternion());
         projectileObj.SetActive(true);
-
-        if (projectileFiringEffect)
-        {
-            Quaternion firingEffectRotation = Quaternion.Euler(0, turret.rotation.eulerAngles.y + 90, 0);
-            Vector3 firingEffectPosition = projectileSpawnPoint.position;
-            firingEffectPosition.z += 2;
-            firingEffectPosition.y += 0.2f;
-            Object.Instantiate(projectileFiringEffect, firingEffectPosition, firingEffectRotation);
-        }
 
         Projectile proj = projectileObj.GetComponent<Projectile>();
         proj.damage = upgrade.options[upgrade.curLvl].damage;
