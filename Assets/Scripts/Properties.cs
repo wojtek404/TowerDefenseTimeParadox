@@ -78,6 +78,7 @@ public class Properties : MonoBehaviour
     {
         if (!IsAlive()) return;
         health -= damage;
+        SetHealthUI();
         if (health > 0 && Time.time > time + 2)
             OnHit();
         else if (health <= 0)
@@ -86,7 +87,6 @@ public class Properties : MonoBehaviour
             GameHandler.EnemyWasKilled();
             OnDeath();
         }
-        SetHealthUI();
     }
 
     private void SetHealthUI()
