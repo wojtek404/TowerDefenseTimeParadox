@@ -267,22 +267,17 @@ public class GUIImpl : MonoBehaviour
     {
         public GameObject main;         
         public GameObject upgradeMenu; 
-        public GameObject tooltip;      
-       // public GameObject control;      
+        public GameObject tooltip;          
     }
 
 
     [System.Serializable]
     public class Buttons
-    {
-        public GameObject mainButton;       
+    {   
         public GameObject towerButtons;    
-		
         public GameObject button_sell;      
         public GameObject button_upgrade;  
-        public GameObject button_abort;     
-		
-        public GameObject button_exit;       
+        public GameObject button_abort;           
     }
 
 

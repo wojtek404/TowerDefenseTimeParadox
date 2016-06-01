@@ -23,6 +23,8 @@ public class GUILogic : MonoBehaviour
     [HideInInspector]
     public GameObject currentTower;
 
+    public Text errorText;
+
     int index = 0;
 
     public GameObject[] invisibleWidgets;
@@ -260,5 +262,19 @@ public class GUILogic : MonoBehaviour
         }
         yield return new WaitForSeconds(duration);
         gObj.SetActive(false);
+    }
+
+    public IEnumerator DisplayError(string text)
+    {
+        if (text == errorText.text)
+            yield break;
+        errorText.text = text;
+        StartCoroutine("FadeIn", errorText.gameObject);
+        yield return new WaitForSeconds(2);
+        if (text != errorText.text)
+            yield break;
+        StartCoroutine("FadeOut", errorText.gameObject);
+        yield return new WaitForSeconds(0.2f);
+        errorText.text = "";
     }
 }
