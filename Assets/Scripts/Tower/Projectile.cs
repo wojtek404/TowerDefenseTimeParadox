@@ -154,7 +154,8 @@ public class Projectile : MonoBehaviour
     void Explosion()
     {
         if (explosion.fx)
-            PoolManager.Pools["Particles"].Spawn(explosion.fx, transform.position, Quaternion.identity);
+            //PoolManager.Pools["Particles"].Spawn(explosion.fx, transform.position, Quaternion.identity);
+            Object.Instantiate(explosion.fx, transform.position, Quaternion.identity);
 
         List<Collider> cols = new List<Collider>(Physics.OverlapSphere(transform.position, explosion.radius, SV.enemyMask));
         foreach (Collider col in cols)
