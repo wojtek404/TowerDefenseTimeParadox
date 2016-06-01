@@ -255,6 +255,7 @@ public class GUIImpl : MonoBehaviour
     {
         SV.showExit = false;
         Time.timeScale = 1;
+        gui.StartCoroutine("FadeIn", buttons.towerButtons);
         gui.StartCoroutine("FadeOut", panels.main);
         if (index == 1)
         {

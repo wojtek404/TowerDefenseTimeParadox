@@ -260,7 +260,7 @@ public class GUILogic : MonoBehaviour
         {
             graphics[i].CrossFadeAlpha(alpha, duration, true);
         }
-        yield return new WaitForSeconds(duration);
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(duration));
         gObj.SetActive(false);
     }
 
@@ -270,11 +270,23 @@ public class GUILogic : MonoBehaviour
             yield break;
         errorText.text = text;
         StartCoroutine("FadeIn", errorText.gameObject);
-        yield return new WaitForSeconds(2);
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(2));
         if (text != errorText.text)
             yield break;
         StartCoroutine("FadeOut", errorText.gameObject);
-        yield return new WaitForSeconds(0.2f);
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(0.2f));
         errorText.text = "";
+    }
+
+    public static class CoroutineUtil
+    {
+        public static IEnumerator WaitForRealSeconds(float time)
+        {
+            float start = Time.realtimeSinceStartup;
+            while (Time.realtimeSinceStartup < start + time)
+            {
+                yield return null;
+            }
+        }
     }
 }
