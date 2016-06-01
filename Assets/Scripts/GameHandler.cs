@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
@@ -86,9 +87,9 @@ public class GameHandler : MonoBehaviour
         if (nextScene == gameOverScene)
         {
             DontDestroyOnLoad(gameObject);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(0);
             transform.parent = null;
         }
-        Application.LoadLevel(nextScene);
+        SceneManager.LoadSceneAsync(nextScene);
     }
 }

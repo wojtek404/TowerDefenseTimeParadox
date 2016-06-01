@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.SceneManagement;
 using System.Collections;
 
 public class MainMenu : MonoBehaviour
@@ -56,15 +55,16 @@ public class MainMenu : MonoBehaviour
         if (!IsInvoking("LoadGame"))
         {
             InvokeRepeating("LoadGame", 0f, 0.2f);
-            StartCoroutine("FadeOut", panelSceneSelection);
-            StartCoroutine("FadeIn", panelLoading);
+            //StartCoroutine("FadeOut", panelSceneSelection);
+            //StartCoroutine("FadeIn", panelLoading);
+            panelSceneSelection.SetActive(false);
+            panelLoading.SetActive(true);
         }
     }
 
     void LoadGame()
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
-        asyncOperation.allowSceneActivation = true;
         if (asyncOperation.isDone)
         {
             progressSlider.value = 1f;
@@ -73,8 +73,17 @@ public class MainMenu : MonoBehaviour
         else
         {
             float progressValue = asyncOperation.progress;
-            progressSlider.value = progressValue;
-            progressText.text = ((int)(progressValue * 100)) + "%";
+            if (progressValue > 0.01f)
+            {
+                progressSlider.transform.Find("Fill Area").gameObject.SetActive(true);
+                progressSlider.value = progressValue;
+                progressText.text = ((int)(progressValue * 100)) + "%";
+            }
+            else
+            {
+                progressSlider.transform.Find("Fill Area").gameObject.SetActive(false);
+                progressText.text = "Loading...";
+            }
         }
     }
 
