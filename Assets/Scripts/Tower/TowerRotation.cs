@@ -4,6 +4,7 @@ using System.Collections;
 public class TowerRotation : MonoBehaviour
 {
     public float damping = 0f;
+
     [HideInInspector]
 	public TowerController towerController;
 

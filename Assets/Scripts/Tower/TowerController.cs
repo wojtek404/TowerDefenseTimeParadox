@@ -7,13 +7,16 @@ public class TowerController : MonoBehaviour {
     public GameObject projectile;
     public GameObject rangeInd;
     public Transform turret;
+
     [HideInInspector]
     public float lastShot = 0f;
+
     [HideInInspector]
     public List<GameObject> inRange = new List<GameObject>();
 
     [HideInInspector]
     public Transform currentTarget;
+
     [HideInInspector]
     public Upgrade upgrade;
 
