@@ -11,12 +11,13 @@ public class MainMenu : MonoBehaviour
 
     public Text progressText;
     public Slider progressSlider;
-    //public AudioClip introMusic;
+    public AudioClip introMusic;
     private string sceneName;
 
     void Start()
     {
-        //AudioManager.Play(introMusic, 100); //moze zmniejszyc
+        if(introMusic)
+            AudioManager.Play(introMusic, 100); //moze zmniejszyc
         panelMenu.SetActive(false);
         panelLoading.SetActive(false);
         panelSceneSelection.SetActive(false);
@@ -29,6 +30,11 @@ public class MainMenu : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
     }
 
     public void ActivateMenu()
