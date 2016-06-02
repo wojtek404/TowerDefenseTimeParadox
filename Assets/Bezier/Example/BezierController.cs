@@ -15,11 +15,14 @@ class BezierController : MonoBehaviour
     public bool looped = false;
     private Vector3 startingDirection = Vector3.left;
     public float yRotation;
+    public bool rotatePathOriented = false;
+    private Vector3 prevPosition;
 
     private float t = 0;
 
     void Start()
     {
+        prevPosition = transform.position;
     }
 
     void Update()
@@ -35,8 +38,10 @@ class BezierController : MonoBehaviour
             transform.position = path.GetPositionByDistance(t);
 
         RotateWithPath();
-       /* if(t > path.points.Count)
-            transform.rotation = Quaternion.Euler(transform.rotation.x, yRotation, transform.rotation.z);*/
+        /* if(t > path.points.Count)
+             transform.rotation = Quaternion.Euler(transform.rotation.x, yRotation, transform.rotation.z);*/
+        if (rotatePathOriented)
+            RotateBasedOnPositionDifference();
     }
 
     void RotateWithPath()
@@ -52,6 +57,15 @@ class BezierController : MonoBehaviour
         float angleOnY = Mathf.Asin(Vector3.Cross(direction.normalized, startingDirection).y) * Mathf.Rad2Deg;
         float angleOnZ = Mathf.Asin(Vector3.Cross(direction.normalized, startingDirection).z) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(angleOnX, yRotation, 0);
+    }
+
+    void RotateBasedOnPositionDifference()
+    {
+        Vector3 differenceVector = transform.position - prevPosition;
+        prevPosition = transform.position;
+        differenceVector.y = 0;
+        if(differenceVector != null)
+            transform.rotation = Quaternion.LookRotation(differenceVector);
     }
 }
 
