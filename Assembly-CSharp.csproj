@@ -68,10 +68,8 @@
      <Compile Include="Assets\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
      <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\DragRigidbody.cs" />
-     <Compile Include="Assets\Scripts\EndMenu.cs" />
      <Compile Include="Assets\Scripts\GameHandler.cs" />
      <Compile Include="Assets\Scripts\GridManager.cs" />
-     <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PathManager.cs" />
      <Compile Include="Assets\Scripts\Pool.cs" />
      <Compile Include="Assets\Scripts\PoolManager.cs" />
@@ -85,9 +83,12 @@
      <Compile Include="Assets\Scripts\Tower\TowerManager.cs" />
      <Compile Include="Assets\Scripts\Tower\TowerRotation.cs" />
      <Compile Include="Assets\Scripts\TweenMove.cs" />
+     <Compile Include="Assets\Scripts\UI\EndMenu.cs" />
      <Compile Include="Assets\Scripts\UI\GUIImpl.cs" />
      <Compile Include="Assets\Scripts\UI\GUILogic.cs" />
      <Compile Include="Assets\Scripts\UI\GameInfo.cs" />
+     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuCameraInteraction.cs" />
      <Compile Include="Assets\Scripts\UI\UIDirectionControl.cs" />
      <Compile Include="Assets\Scripts\Upgrade.cs" />
      <Compile Include="Assets\Scripts\UseCase.cs" />
@@ -122,7 +123,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="HOTween">
- <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Scripts/HOTween.dll</HintPath>
+ <HintPath>C:/Users/Krzysztof/Documents/GitHub/TowerDefenseTimeParadox/Assets/Scripts/HOTween.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

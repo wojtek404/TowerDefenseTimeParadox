@@ -76,7 +76,7 @@ public class BezierPath : MonoBehaviour
         /// The distances in this bezier curve at 0.1 intervals
         /// </summary>
         [HideInInspector]
-        public float[] internalDistance = new float[10];
+        public float[] internalDistance;// = new float[10];
     }
 
     /// <summary>
@@ -95,7 +95,8 @@ public class BezierPath : MonoBehaviour
             points[i].bezier.p2 = points[i + 1].p1;
             points[i].bezier.h2 = -points[i + 1].h1; // negative of this handle
 
-            if (points[i].internalDistance == null) points[i].internalDistance = new float[10];
+            //if (points[i].internalDistance == null)
+                points[i].internalDistance = new float[10];
             // aproximate distance
             for (int t = 0; t < 10; t++)
             {

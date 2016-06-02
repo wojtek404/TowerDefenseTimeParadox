@@ -64,7 +64,7 @@ class BezierController : MonoBehaviour
         Vector3 differenceVector = transform.position - prevPosition;
         prevPosition = transform.position;
         differenceVector.y = 0;
-        if(differenceVector != null)
+        if(differenceVector.magnitude != 0)
             transform.rotation = Quaternion.LookRotation(differenceVector);
     }
 }
