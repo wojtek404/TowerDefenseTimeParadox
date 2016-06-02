@@ -87,9 +87,6 @@
  <Reference Include="HOTween">
  <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Scripts/HOTween.dll</HintPath>
  </Reference>
- <Reference Include="HOTweenV1_Editor">
- <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Scripts/Editor 1/HOTweenV1_Editor.dll</HintPath>
- </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -46,7 +46,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Bezier\Editor\BezierPathEditor.cs" />
-     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\Editor\TurnOffRenderers.cs" />
+     <Compile Include="Assets\Editor\EnemySetup.cs" />
+     <Compile Include="Assets\Editor\PathEditor.cs" />
+     <Compile Include="Assets\Editor\WaveEditor.cs" />
+     <Compile Include="Assets\Editor\WaypointEditor.cs" />
      <None Include="Assets\Moba_Camera\Readme\readme.txt" />
      <None Include="Assets\Day-Night Skyboxes\readme.txt" />
      <None Include="Assets\Modular Space Raider\readme.txt" />
@@ -96,11 +99,11 @@
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
+ <Reference Include="HOTweenV1_Editor">
+ <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Editor/HOTweenV1_Editor.dll</HintPath>
+ </Reference>
  <Reference Include="HOTween">
  <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Scripts/HOTween.dll</HintPath>
- </Reference>
- <Reference Include="HOTweenV1_Editor">
- <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Scripts/Editor 1/HOTweenV1_Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

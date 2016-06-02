@@ -46,13 +46,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Bezier\Example\BezierController.cs" />
-     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\CamTarget.cs" />
-     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\CharacterDemoController.cs" />
-     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\MouseOrbit.cs" />
-     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\Outfitter.cs" />
-     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\RootMotionOff.cs" />
-     <Compile Include="Assets\Enemies\AllStarCharacterLibrary\Scripts\SkinnedMeshCombiner.cs" />
+     <Compile Include="Assets\Enemies\PopupAsylum\PA_SciFiCombatants\_Imported3D\Characters\StartTheEngines.cs" />
      <Compile Include="Assets\MSFMC_RadarDish\Prefabs\RotatingDish.cs" />
+     <Compile Include="Assets\Missile Systems\Missile\Missile.cs" />
+     <Compile Include="Assets\Missile Systems\Missile\ShootObject.cs" />
+     <Compile Include="Assets\Missile Systems\ParticleDespawn.cs" />
      <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera.cs" />
      <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera_Boundaries.cs" />
      <Compile Include="Assets\Moba_Camera\Scripts\Moba_Camera_Boundary.cs" />
@@ -68,13 +66,12 @@
      <Compile Include="Assets\PyroParticles\Prefab\Script\FireProjectileScript.cs" />
      <Compile Include="Assets\PyroParticles\Prefab\Script\MeteorSwarmScript.cs" />
      <Compile Include="Assets\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
+     <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\DragRigidbody.cs" />
-     <Compile Include="Assets\Scripts\Editor 1\WaveEditor.cs" />
-     <Compile Include="Assets\Scripts\Editor 1\WaypointEditor.cs" />
-     <Compile Include="Assets\Scripts\EnemySetup.cs" />
+     <Compile Include="Assets\Scripts\EndMenu.cs" />
      <Compile Include="Assets\Scripts\GameHandler.cs" />
      <Compile Include="Assets\Scripts\GridManager.cs" />
-     <Compile Include="Assets\Scripts\PathEditor.cs" />
+     <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PathManager.cs" />
      <Compile Include="Assets\Scripts\Pool.cs" />
      <Compile Include="Assets\Scripts\PoolManager.cs" />
@@ -85,8 +82,8 @@
      <Compile Include="Assets\Scripts\Tower\Projectile.cs" />
      <Compile Include="Assets\Scripts\Tower\RangeTrigger.cs" />
      <Compile Include="Assets\Scripts\Tower\TowerController.cs" />
-     <Compile Include="Assets\Scripts\TowerManager.cs" />
-     <Compile Include="Assets\Scripts\TowerRotation.cs" />
+     <Compile Include="Assets\Scripts\Tower\TowerManager.cs" />
+     <Compile Include="Assets\Scripts\Tower\TowerRotation.cs" />
      <Compile Include="Assets\Scripts\TweenMove.cs" />
      <Compile Include="Assets\Scripts\UI\GUIImpl.cs" />
      <Compile Include="Assets\Scripts\UI\GUILogic.cs" />
@@ -126,9 +123,6 @@
  </Reference>
  <Reference Include="HOTween">
  <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Scripts/HOTween.dll</HintPath>
- </Reference>
- <Reference Include="HOTweenV1_Editor">
- <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Scripts/Editor 1/HOTweenV1_Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
