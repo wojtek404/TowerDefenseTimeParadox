@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.4f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -66,9 +64,6 @@
     <Reference Include="HOTween">
       <HintPath>Assets\Scripts\HOTween.dll</HintPath>
     </Reference>
-    <Reference Include="HOTweenV1_Editor">
-      <HintPath>Assets\Scripts\Editor 1\HOTweenV1_Editor.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="TowerDefenseTimeParadox.CSharp.Plugins.csproj">
@@ -80,7 +75,6 @@
     <Compile Include="Assets\Bezier\Example\BezierController.cs" />
     <Compile Include="Assets\Enemies\PopupAsylum\PA_SciFiCombatants\_Imported3D\Characters\StartTheEngines.cs" />
     <Compile Include="Assets\MSFMC_RadarDish\Prefabs\RotatingDish.cs" />
-    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\Missile Systems\Missile\Missile.cs" />
     <Compile Include="Assets\Missile Systems\Missile\ShootObject.cs" />
     <Compile Include="Assets\Missile Systems\ParticleDespawn.cs" />
@@ -101,12 +95,8 @@
     <Compile Include="Assets\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\DragRigidbody.cs" />
-    <Compile Include="Assets\Scripts\Editor 1\WaveEditor.cs" />
-    <Compile Include="Assets\Scripts\Editor 1\WaypointEditor.cs" />
-    <Compile Include="Assets\Scripts\EnemySetup.cs" />
     <Compile Include="Assets\Scripts\GameHandler.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
-    <Compile Include="Assets\Scripts\PathEditor.cs" />
     <Compile Include="Assets\Scripts\PathManager.cs" />
     <Compile Include="Assets\Scripts\Pool.cs" />
     <Compile Include="Assets\Scripts\PoolManager.cs" />
@@ -120,9 +110,12 @@
     <Compile Include="Assets\Scripts\Tower\TowerManager.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerRotation.cs" />
     <Compile Include="Assets\Scripts\TweenMove.cs" />
+    <Compile Include="Assets\Scripts\UI\EndMenu.cs" />
     <Compile Include="Assets\Scripts\UI\GUIImpl.cs" />
     <Compile Include="Assets\Scripts\UI\GUILogic.cs" />
     <Compile Include="Assets\Scripts\UI\GameInfo.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuCameraInteraction.cs" />
     <Compile Include="Assets\Scripts\UI\UIDirectionControl.cs" />
     <Compile Include="Assets\Scripts\Upgrade.cs" />
     <Compile Include="Assets\Scripts\UseCase.cs" />
@@ -137,6 +130,7 @@
     <None Include="Assets\CUSTOM\LASciFiPanel\_ProductFeatures.txt" />
     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
     <None Include="Assets\Day-Night Skyboxes\readme.txt" />
+    <None Include="Assets\Enemies\Dark Creatures Pack\Orc Slinger\Read me.txt" />
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
     <None Include="Assets\Enemies\tripods\Materials\lightbeam.shader" />
     <None Include="Assets\Moba_Camera\Readme\readme.txt" />

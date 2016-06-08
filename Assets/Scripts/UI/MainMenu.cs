@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         if(introMusic)
-            AudioManager.Play(introMusic, 100); //moze zmniejszyc
+            AudioManager.Play(introMusic, 0.9f); //moze zmniejszyc
         panelMenu.SetActive(false);
         panelLoading.SetActive(false);
         panelSceneSelection.SetActive(false);

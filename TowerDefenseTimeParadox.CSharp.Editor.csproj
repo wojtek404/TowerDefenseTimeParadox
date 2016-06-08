@@ -82,6 +82,9 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Tizen.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Tizen.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.WebGL.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.WebGL.Extensions.dll</HintPath>
     </Reference>
@@ -91,11 +94,11 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="HOTweenV1_Editor">
+      <HintPath>Assets\Editor\HOTweenV1_Editor.dll</HintPath>
+    </Reference>
     <Reference Include="HOTween">
       <HintPath>Assets\Scripts\HOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="HOTweenV1_Editor">
-      <HintPath>Assets\Scripts\Editor 1\HOTweenV1_Editor.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-UnityScript">
       <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
@@ -113,6 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Bezier\Editor\BezierPathEditor.cs" />
+    <Compile Include="Assets\Editor\EnemySetup.cs" />
+    <Compile Include="Assets\Editor\PathEditor.cs" />
+    <Compile Include="Assets\Editor\WaveEditor.cs" />
+    <Compile Include="Assets\Editor\WaypointEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\!SCI_FI_Modular_Pack_Free\AdditiveTint.shader" />
@@ -122,6 +129,7 @@
     <None Include="Assets\CUSTOM\LASciFiPanel\_ProductFeatures.txt" />
     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
     <None Include="Assets\Day-Night Skyboxes\readme.txt" />
+    <None Include="Assets\Enemies\Dark Creatures Pack\Orc Slinger\Read me.txt" />
     <None Include="Assets\Enemies\PB_Spider\readme.txt" />
     <None Include="Assets\Enemies\tripods\Materials\lightbeam.shader" />
     <None Include="Assets\Moba_Camera\Readme\readme.txt" />
