@@ -170,6 +170,10 @@ namespace DigitalRuby.PyroParticles
                 return;
             }
             Stopping = true;
+            if (AudioSource != null)
+            {
+                AudioSource.Stop();
+            }
 
             // cleanup particle systems
             foreach (ParticleSystem p in gameObject.GetComponentsInChildren<ParticleSystem>())
