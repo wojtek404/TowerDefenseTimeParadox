@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Assets\Bezier\Example\BezierController.cs" />
     <Compile Include="Assets\Enemies\PopupAsylum\PA_SciFiCombatants\_Imported3D\Characters\StartTheEngines.cs" />
+    <Compile Include="Assets\GUI\AdditionalButtonBehavior.cs" />
     <Compile Include="Assets\MSFMC_RadarDish\Prefabs\RotatingDish.cs" />
     <Compile Include="Assets\Missile Systems\Missile\Missile.cs" />
     <Compile Include="Assets\Missile Systems\Missile\ShootObject.cs" />

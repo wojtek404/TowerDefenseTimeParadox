@@ -196,14 +196,14 @@ public class GUIImpl : MonoBehaviour
         float sellPrice = gui.GetSellPrice();
         float upgradePrice = gui.GetUpgradePrice();
         bool affordable = true;
-        labels.sellPrice.text = "$" + sellPrice;
+        labels.sellPrice.text = "" + sellPrice;
         if (!gui.AvailableUpgrade())
         {
             affordable = false;
-            labels.price.text = "";
+            labels.price.text = "Cost: ";
         }
         else
-            labels.price.text = "$" + upgradePrice;
+            labels.price.text = "Cost: " + upgradePrice;
         if (affordable)
             affordable = gui.AffordableUpgrade();
         if (affordable)
@@ -248,7 +248,7 @@ public class GUIImpl : MonoBehaviour
                                 upgOptions.radius + "\n" +
                                 upgOptions.damage + "\n" +
                                 upgOptions.shootDelay + "\n";
-        labels.price.text = "$" + upgOptions.cost;
+        labels.price.text = "Cost: " + upgOptions.cost;
     }
 
     public void ExitMenu(int index)
