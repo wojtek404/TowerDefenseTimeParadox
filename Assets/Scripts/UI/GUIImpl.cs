@@ -6,8 +6,6 @@ using System.Collections;
 public class GUIImpl : MonoBehaviour
 {
     private GUILogic gui;
-    public GameObject buildFx;
-    public GameObject upgradeFx;
     public Panels panels = new Panels();
     public Buttons buttons = new Buttons();
     public Labels labels = new Labels();
@@ -21,11 +19,6 @@ public class GUIImpl : MonoBehaviour
     void Start()
     {
         DisableMenus();
-    }
-
-    void OnDestroy()
-    {
-        
     }
 
     public void DisableMenus()
