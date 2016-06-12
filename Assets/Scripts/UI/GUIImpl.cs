@@ -124,8 +124,6 @@ public class GUIImpl : MonoBehaviour
 
     void BuyTower()
     {
-        //if(buildFx)
-        //    PoolManager.Pools["Particles"].Spawn(buildFx, SV.selection.transform.position, Quaternion.identity);
         gui.BuyTower();
         gui.CancelSelection(false);
         if (gui.towerController)
@@ -215,8 +213,6 @@ public class GUIImpl : MonoBehaviour
     public void Upgrade()
     {
         GameObject tower = gui.upgrade.gameObject;
-        if (upgradeFx)
-            PoolManager.Pools["Particles"].Spawn(upgradeFx, tower.transform.position, Quaternion.identity);
         gui.UpgradeTower();
         UpdateUpgradeMenu();
     }
@@ -291,14 +287,5 @@ public class GUIImpl : MonoBehaviour
         public Text upgradeInfo;   
         public Text price;         
         public Text sellPrice;   
-    }
-
-
-    [System.Serializable]
-    public class Sound
-    {
-        public AudioClip build;     
-        public AudioClip sell;      
-        public AudioClip upgrade;   
     }
 }

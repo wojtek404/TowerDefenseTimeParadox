@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class GUILogic : MonoBehaviour
 {
     public TowerManager towerManager;
-    public GridManager gridScript;
+    public GridManager gridManager;
     public Camera raycastCam;
 
     private Ray ray;
@@ -34,7 +34,7 @@ public class GUILogic : MonoBehaviour
         if (towerManager == null)
             Debug.LogWarning("GUI TowerManager not set");
 
-        if (gridScript == null)
+        if (gridManager == null)
             Debug.LogWarning("GUI GridManager not set");
 
         towerContainer = GameObject.Find("Tower Manager").transform;
@@ -84,12 +84,12 @@ public class GUILogic : MonoBehaviour
         currentTower = null;
         SV.selection = null;
         SV.gridSelection = null;
-        gridScript.ToggleVisibility(false);
+        gridManager.ToggleVisibility(false);
     }
 
     public bool CheckIfGridIsFree()
     {
-        if (currentGrid == null || gridScript.GridList.Contains(currentGrid.name))
+        if (currentGrid == null || gridManager.GridList.Contains(currentGrid.name))
             return false;
         else
             return true;
@@ -156,7 +156,7 @@ public class GUILogic : MonoBehaviour
             currentTower = null;
             Destroy(SV.selection);
         }
-        if (gridScript.GridList.Count == gridScript.transform.childCount)
+        if (gridManager.GridList.Count == gridManager.transform.childCount)
         {
             StartCoroutine("DisplayError", "No free grids left for placing a new tower!");
             Debug.Log("No free grids left for placing a new tower!");
@@ -188,7 +188,7 @@ public class GUILogic : MonoBehaviour
         towerController.upgrade = upgrade;
         towerController.enabled = false;
         if (!SV.gridSelection)
-            gridScript.ToggleVisibility(true);
+            gridManager.ToggleVisibility(true);
     }
 
     public void BuyTower()
@@ -199,8 +199,8 @@ public class GUILogic : MonoBehaviour
             currentGrid = SV.gridSelection;
             SV.gridSelection.GetComponent<Renderer>().enabled = false;
         }
-        gridScript.GridList.Add(currentGrid.name);
-        currentGrid.transform.GetComponent<Renderer>().material = gridScript.gridFullMat;
+        gridManager.GridList.Add(currentGrid.name);
+        currentGrid.transform.GetComponent<Renderer>().material = gridManager.gridFullMat;
         towerController.enabled = true;
         towerController.rangeInd.GetComponent<Renderer>().enabled = false;
         if (towerController.turret)
@@ -222,8 +222,8 @@ public class GUILogic : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 20, SV.gridMask))
         {
             Transform grid = hit.transform;
-            gridScript.GridList.Remove(grid.name);
-            grid.GetComponent<Renderer>().material = gridScript.gridFreeMat;
+            gridManager.GridList.Remove(grid.name);
+            grid.GetComponent<Renderer>().material = gridManager.gridFreeMat;
         }
     }
 
