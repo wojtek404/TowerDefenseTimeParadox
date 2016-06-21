@@ -71,9 +71,10 @@
      <None Include="Assets\Bezier\readme.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
+     <None Include="Assets\Enemies\Dark Creatures Pack\Orc Slinger\Read me.txt" />
      <None Include="Assets\Enemies\tripods\Materials\lightbeam.shader" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>C:/GIT/TowerDefenseTimeParadox/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>D:/TowerDefenseTimeParadox/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -100,13 +101,16 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
  <Reference Include="HOTweenV1_Editor">
- <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Editor/HOTweenV1_Editor.dll</HintPath>
+ <HintPath>D:/TowerDefenseTimeParadox/Assets/Editor/HOTweenV1_Editor.dll</HintPath>
  </Reference>
  <Reference Include="HOTween">
- <HintPath>C:/GIT/TowerDefenseTimeParadox/Assets/Scripts/HOTween.dll</HintPath>
+ <HintPath>D:/TowerDefenseTimeParadox/Assets/Scripts/HOTween.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
