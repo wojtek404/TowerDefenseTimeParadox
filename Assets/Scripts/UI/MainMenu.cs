@@ -55,8 +55,6 @@ public class MainMenu : MonoBehaviour
         if (!IsInvoking("LoadGame"))
         {
             InvokeRepeating("LoadGame", 0f, 0.2f);
-            //StartCoroutine("FadeOut", panelSceneSelection);
-            //StartCoroutine("FadeIn", panelLoading);
             panelSceneSelection.SetActive(false);
             panelLoading.SetActive(true);
         }

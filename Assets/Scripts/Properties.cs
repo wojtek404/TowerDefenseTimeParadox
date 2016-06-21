@@ -48,7 +48,6 @@ public class Properties : MonoBehaviour
         myMove = gameObject.GetComponent<TweenMove>();
         anim = gameObject.GetComponentInChildren<Animation>();
         myMove.maxSpeed = myMove.speed;
-        myMove.pMapProperties.myID = gameObject.GetInstanceID();
     }
 
     IEnumerator OnSpawn()
@@ -179,11 +178,6 @@ public class Properties : MonoBehaviour
         {
             if (child.name.Contains("(Clone)"))
                 PoolManager.Pools["Particles"].Despawn(child.gameObject);
-        }
-       if (myMove.pMapProperties.enabled)
-        {
-            myMove.CancelInvoke("ProgressCalc");
-            ProgressMap.RemoveFromMap(myMove.pMapProperties.myID);
         }
         if (health <= 0)
         {

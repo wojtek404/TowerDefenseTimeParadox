@@ -26,7 +26,6 @@ public class TweenMove : MonoBehaviour
     private Vector3[] wpPos;
     private TweenParms tParms;
     private PlugVector3Path plugPath;
-    public ProgMapProps pMapProperties = new ProgMapProps();
 
     IEnumerator OnSpawn()
     {
@@ -34,11 +33,6 @@ public class TweenMove : MonoBehaviour
         waypoints = pathContainer.waypoints;
         InitWaypoints();
         StartMove();
-        if (pMapProperties.enabled)
-        {
-            //ProgressMap.AddToMap(pMapProperties.prefab, pMapProperties.myID);
-            InvokeRepeating("ProgressCalc", 0.5f, pMapProperties.updateInterval);
-        }
     }
 
     internal void InitWaypoints()
@@ -101,12 +95,6 @@ public class TweenMove : MonoBehaviour
     internal void OnPathComplete()
     {
         gameObject.SendMessage("PathEnd", SendMessageOptions.DontRequireReceiver);
-    }
-
-    void ProgressCalc()
-    {
-        float progress = tween.fullElapsed / tween.fullDuration;
-        //ProgressMap.CalcInMap(pMapProperties.myID, progress);
     }
 
     public void Slow()
